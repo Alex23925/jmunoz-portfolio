@@ -18,6 +18,9 @@
     color: $primary-clr;
     font-size: 14px;
     font-weight: 800;
+    @include media(">phone") { 
+        font-size: 24px;
+    }
 }
 
 .last-name {
@@ -29,6 +32,9 @@
     color: $primary-clr;
     font-size: 14px;
     font-weight: 800;
+    @include media(">phone") { 
+        font-size: 24px;
+    }
 }
 
 .link {
@@ -40,4 +46,7 @@
     font-family: $font-sub;
     color: $primary-clr;
     font-size: 14px;
+    @include media(">phone") { 
+        font-size: 20px;
+    }
 }

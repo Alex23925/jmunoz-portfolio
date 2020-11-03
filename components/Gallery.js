@@ -1,23 +1,25 @@
 import dynamic from "next/dynamic";
+import {useEffect, useState} from "react";
 import { animate, motion } from "framer-motion";
 import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
-const transition = { delay: .4, duration: .8, ease: [.6, .01, -.05, .9] };
-const transition2 = { delay: 1.5, duration: .4, ease: [.6, .01, -.05, .9] };
+const transition = { delay: .6, duration: .8, ease: [.6, .01, -.05, .9] };
+const transition2 = { delay: 1.2, duration: 1, ease: [.6, .01, -.05, .9] };
+
 const imgVariant = {
     initial: {
-        width: 300 * 3,
-        height: 400 * 3,
+        width: "300%",
+        height: "auto",
         x: -150,
-        y: -250,
+        y: -150,
     },
     animate: {
         x: 0,
         y: 0,
-        width: 300,
-        height: 400,
+        width: "100%",
+        height: "auto",
         transition: { duration: 2, ...transition }
     }
 }
@@ -44,6 +46,7 @@ const nonHoverTitleVariant = {
 }
 
 export default function Gallery() {
+
     return (
         <div className="gallery-wrapper">
 

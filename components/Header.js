@@ -36,7 +36,7 @@ const lNameVariant = {
 
 const letter = {
     initial: {
-        y: 25,
+        y: 0,
     },
     animate: {
         y: 0,
@@ -45,6 +45,7 @@ const letter = {
 };
 
 export default function Header(props) {
+
 
     return (
         <motion.div initial="initial" animate="animate" exit="exit" className="header header-styles">
