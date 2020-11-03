@@ -4,7 +4,7 @@ import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
-const transition = { delay: 1, duration: .8, ease: [.6, .01, -.05, .9] };
+const transition = { delay: .4, duration: .8, ease: [.6, .01, -.05, .9] };
 const transition2 = { delay: 3, duration: 1.2, ease: [.6, .01, -.05, .9] };
 const imgVariant = {
     initial: {
