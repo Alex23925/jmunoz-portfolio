@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import "../styles/header.scss";
 
-const transition = { delay: 2.2, duration: .4, ease: [.6, .01, -.05, .9] };
+const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
 
 const fNameVariant = {
     initial: {
