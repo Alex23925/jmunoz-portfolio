@@ -8,7 +8,7 @@ const transition = { delay: 1, duration: .8, ease: [.6, .01, -.05, .9] };
 
 const imgVariant = {
     initial: {
-        width: "180vw",
+        width: "1200px",
         height: "auto",
         x: -150,
         y: -150,
