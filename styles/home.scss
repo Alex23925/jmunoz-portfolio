@@ -1,0 +1,11 @@
+@import "./breakpoints.scss";
+@import "./colors.scss";
+@import "fonts.scss";
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: $bg-dark;
+
+}

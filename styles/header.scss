@@ -1,0 +1,43 @@
+@import "./breakpoints.scss";
+@import "./colors.scss";
+@import "fonts.scss";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 38px 0px 38px;
+    overflow: hidden;
+    span {
+         display: inline-block;
+         //border: solid red 2px;
+    }
+}
+
+.first-name--styles {
+    font-family: $font-main;
+    color: $primary-clr;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.last-name {
+    margin-left: 14px;
+}
+
+.last-name--styles {
+    font-family: $font-main;
+    color: $primary-clr;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.link {
+    margin-left: 16px;
+}
+
+.link--styles {
+    text-decoration: none;
+    font-family: $font-sub;
+    color: $primary-clr;
+    font-size: 14px;
+}
