@@ -4,7 +4,7 @@ import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
-const transition = {delay: 1, duration: .8, ease: [.6, .01, -.05, .9] };
+const transition = { delay: 1, duration: .8, ease: [.6, .01, -.05, .9] };
 
 const imgVariant = {
     initial: {
@@ -22,6 +22,15 @@ const imgVariant = {
     }
 }
 
+const h2Variant = {
+    initial: {
+        opacity: 0,
+    },
+    animate: {
+        opacity: 0,
+    }
+}
+
 export default function Gallery() {
     return (
         <div className="gallery-wrapper">
@@ -33,8 +42,8 @@ export default function Gallery() {
                     <a href="#" className="img-link">
                         <motion.img variants={imgVariant} initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW.jpeg" alt="Picture of the red and silver BMW" />
                     </a>
-                    <div className="non-hover-title"><span>BMW - </span><span>Car</span></div>
-                    <div className="hover-title">browse all photos from this session</div>
+                    <h2 className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></h2>
+                    <motion.h2 variants={h2Variant} initial="initial" animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
                 </div>
             </div>
 

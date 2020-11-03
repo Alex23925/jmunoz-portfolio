@@ -1,3 +1,7 @@
+@import "../breakpoints.scss";
+@import "../colors.scss";
+@import "../fonts.scss";
+
 .gallery-wrapper {
     width: 325px;
     height: 500px;
@@ -22,4 +26,26 @@
 .animated-intro-img {
     width: 100%;
     height: auto;
+}
+
+.non-hover-title {
+    margin-top: 8px;
+}
+
+.img-title--styles {
+    font-family: $font-sub;
+    color: $secondary-clr;
+    font-weight: 800;
+}
+
+.img-category--styles {
+    font-family: $font-sub;
+    color: $secondary-clr;
+    font-weight: 400;
+}
+
+.hover-title--styles {
+    font-family: $font-sub;
+    color: $secondary-clr;
+    font-weight: 400;
 }
