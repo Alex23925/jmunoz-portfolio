@@ -8,10 +8,10 @@ const transition = { delay: 1, duration: .8, ease: [.6, .01, -.05, .9] };
 
 const imgVariant = {
     initial: {
-        width: "1200px",
-        height: "auto",
+        width: 300 * 3,
+        height: 400 * 3,
         x: -150,
-        y: -150,
+        y: -250,
     },
     animate: {
         x: 0,
