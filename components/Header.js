@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { useEffect } from "react";
+
 import { motion } from "framer-motion";
 import "../styles/header.scss";
 
-const transition = {delay: 2.2, duration: .4, ease: [.6, .01, -.05, .9] };
+const transition = { delay: 2.2, duration: .4, ease: [.6, .01, -.05, .9] };
 
 const fNameVariant = {
     initial: {
@@ -43,6 +45,7 @@ const letter = {
 };
 
 export default function Header(props) {
+
     return (
         <motion.div initial="initial" animate="animate" exit="exit" className="header header-styles">
             <motion.div className="name-title">

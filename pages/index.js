@@ -6,7 +6,7 @@ const Header = dynamic(() => import("../components/Header"));
 const Gallery = dynamic(() => import("../components/Gallery"));
 export default function Home() {
   return (
-    <div className="page-wrapper">
+    <div div div className={`page-wrapper`} >
       <Meta />
       <Header />
       <Gallery />
