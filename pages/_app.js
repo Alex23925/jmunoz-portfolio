@@ -9,13 +9,13 @@ function MyApp({ Component, pageProps }) {
 
   const [loading, setLoading] = useState(false);
 
-  Router.events.on("routerChangeStart", () => useState(true));
+  Router.events.on("routerChangeStart", () => setLoading(true));
 
-  Router.events.on("routerChangeComplete", () => useState(false));
+  Router.events.on("routerChangeComplete", () => setLoading(false));
 
-  Router.events.on("routerChangeError", () => useState(false));
+  Router.events.on("routerChangeError", () => setLoading(false));
 
-  return loading ? <div>Loading...</div> : <Component {...pageProps} />
+  return loading ? <h1>Loading...</h1> : <Component {...pageProps} />
 
 }
 
