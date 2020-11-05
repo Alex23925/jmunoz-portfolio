@@ -14,6 +14,7 @@
     align-items: center;
     @include media(">=tablet") { 
         margin-top: 128px;
+        justify-content: flex-start;
     }
 }
 
@@ -23,8 +24,14 @@
     height: 405px;
     //border: 2px solid blanchedalmond;
     @include media(">=tablet") { 
+        width: 500px;
+        height: 205px; 
+        margin-left: 192px; 
+    }
+    @include media(">=desktop") { 
         width: 700px;
-        height: 205px;  
+        height: 205px; 
+        margin-left: 384px; 
     }
 }
 
@@ -47,16 +54,34 @@
     font-family: $font-sub;
     color: $secondary-clr;
     font-weight: 800;
+    @include media(">=tablet") { 
+        font-size: 16px;
+    }
+    @include media(">=desktop") { 
+        font-size: 24px;
+    }
 }
 
 .img-category--styles {
     font-family: $font-sub;
     color: $secondary-clr;
     font-weight: 400;
+    @include media(">=tablet") { 
+        font-size: 16px;
+    }
+    @include media(">=desktop") { 
+        font-size: 24px;
+    }
 }
 
 .hover-title--styles {
     font-family: $font-sub;
     color: $secondary-clr;
     font-weight: 400;
+    @include media(">=tablet") { 
+        font-size: 16px;
+    }
+    @include media(">=desktop") { 
+        font-size: 24px;
+    }
 }

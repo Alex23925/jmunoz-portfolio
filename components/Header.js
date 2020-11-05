@@ -45,7 +45,7 @@ const letter = {
 };
 
 export default function Header(props) {
-
+    
 
     return (
         <motion.div initial="initial" animate="animate" exit="exit" className="header header-styles">
