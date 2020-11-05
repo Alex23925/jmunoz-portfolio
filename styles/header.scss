@@ -36,6 +36,9 @@
     font-size: 14px;
     font-weight: 800;
     @include media(">phone") { 
+        font-size: 14px;
+    }
+    @include media(">tablet") { 
         font-size: 32px;
     }
 }
@@ -50,6 +53,9 @@
     font-size: 14px;
     font-weight: 800;
     @include media(">phone") { 
+        font-size: 14px;
+    }
+    @include media(">tablet") { 
         font-size: 32px;
     }
 }
@@ -64,6 +70,9 @@
     color: $primary-clr;
     font-size: 14px;
     @include media(">phone") { 
+        font-size: 16px;
+    }
+    @include media(">tablet") { 
         font-size: 32px;
     }
 }
