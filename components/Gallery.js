@@ -81,6 +81,16 @@ export default function Gallery() {
                 </div>
             </div>
 
+            <div className="gallery-wrapper-item">
+                <div className="gallery-item-content">
+                    <a href="#" className="img-link">
+                        <motion.img ref={imgRef} initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW.jpeg" alt="Picture of the red and silver BMW" />
+                    </a>
+                    <motion.h2 variants={nonHoverTitleVariant} initial="initial" animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
+                    <motion.h2 variants={h2Variant} initial="initial" animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
+                </div>
+            </div>
+
 
 
         </div>
