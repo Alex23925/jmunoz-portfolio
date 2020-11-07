@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { animate, motion } from "framer-motion";
 import "../styles/gallery-styles/gallery.scss";
 
@@ -19,6 +19,7 @@ const imgVariant = {
     initial: {
         width: "210%",
         height: "auto",
+        overflow: "hidden",
         x: -218,
         y: -81,
     },
@@ -28,7 +29,7 @@ const imgVariant = {
         width: "100%",
         height: "auto",
         transition: { duration: 2, ...transition }
-    }
+    },
 }
 
 const h2Variant = {
@@ -52,17 +53,25 @@ const nonHoverTitleVariant = {
     }
 }
 
+const portraitVariant = {
+    initial: {
+        overflow: "none"
+    },
+    animate: {
+        overflow: "hidden"
+    },
+}
+
 export default function Gallery() {
 
-    const imgRef = useRef();
+    const [hidden, setHidden] = useState(" ");
+
 
     useEffect(() => {
-        const imgBounds = imgRef.current.getBoundingClientRect();
-        console.log(` Image Bound:`);
-        let top = imgBounds.y;
-        topOut = top;
-        let left = imgBounds.x;
-        console.log(`top: ${top} | left: ${left}`);
+        const interval = setInterval(() => {
+            setHidden("img-portrait");
+        }, 1400);
+        return () => clearInterval(interval);
     }, [])
 
 
@@ -73,9 +82,26 @@ export default function Gallery() {
             {/* first image to be animated in */}
             <div className="gallery-wrapper-item">
                 <div className="gallery-item-content">
-                    <a href="#" className="img-link">
-                        <motion.img ref={imgRef} variants={imgVariant} initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW_med.jpeg" alt="Picture of the red and silver BMW" />
-                    </a>
+                    <motion.div
+                        whileHover={{ scale: .97 }}
+                        transition={{ duration: .45 }}
+                        ref={portraitVariant}
+                        initial="initial"
+                        animate="animate"
+                        className={hidden}>
+                        <a href="#" className="img-link">
+                            <motion.img
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: .45 }}
+                                variants={imgVariant}
+                                initial="initial"
+                                animate="animate"
+                                className="animated-intro-img"
+                                src="/bothBMW_med.jpeg"
+                                alt="Picture of the red and silver BMW"
+                            />
+                        </a>
+                    </motion.div>
                     <motion.h2 variants={nonHoverTitleVariant} initial="initial" animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
                     <motion.h2 variants={h2Variant} initial="initial" animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
                 </div>
@@ -91,7 +117,7 @@ export default function Gallery() {
                             <motion.img
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ duration: .45 }}
-                                ref={imgRef} initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW_med.jpeg" alt="Picture of the red and silver BMW" />
+                                initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW_med.jpeg" alt="Picture of the red and silver BMW" />
                         </a>
                     </motion.div>
                     <motion.h2 variants={nonHoverTitleVariant} initial="initial" animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
