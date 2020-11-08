@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { animate, motion } from "framer-motion";
+import { useAnimation, motion } from "framer-motion";
 import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
@@ -32,44 +32,17 @@ const imgVariant = {
     },
 }
 
-const h2Variant = {
-    initial: {
-        opacity: 0,
-    },
-    animate: {
-        opacity: 0,
-    }
-}
-
-const nonHoverTitleVariant = {
-    initial: {
-        opacity: 0,
-        y: 20,
-    },
-    animate: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 2, ...transition2 }
-    }
-}
-
-const portraitVariant = {
-    initial: {
-        overflow: "none"
-    },
-    animate: {
-        overflow: "hidden"
-    },
-}
 
 export default function Gallery() {
+    const controlsHideTitle = useAnimation();
+    const controlShowTitle = useAnimation();
 
     const [hidden, setHidden] = useState(" ");
 
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setHidden("img-portrait");
+            setHidden("overflow-hid");
         }, 1400);
         return () => clearInterval(interval);
     }, [])
@@ -78,20 +51,18 @@ export default function Gallery() {
     return (
         <div className="gallery-wrapper">
 
-
             {/* first image to be animated in */}
             <div className="gallery-wrapper-item">
                 <div className="gallery-item-content">
                     <motion.div
                         whileHover={{ scale: .97 }}
                         transition={{ duration: .45 }}
-                        ref={portraitVariant}
                         initial="initial"
                         animate="animate"
                         className={hidden}>
                         <a href="#" className="img-link">
                             <motion.img
-                                whileHover={{ scale: 1.1 }}
+                                whileHover={{ scale: 1.15 }}
                                 transition={{ duration: .45 }}
                                 variants={imgVariant}
                                 initial="initial"
@@ -102,33 +73,75 @@ export default function Gallery() {
                             />
                         </a>
                     </motion.div>
-                    <motion.h2 variants={nonHoverTitleVariant} initial="initial" animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
-                    <motion.h2 variants={h2Variant} initial="initial" animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
+                    <motion.h2 animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
+                    <motion.h2 animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
                 </div>
             </div>
 
             <div className="gallery-wrapper-item">
-                <div className="gallery-item-content">
+                <motion.div
+                    className="gallery-item-content">
                     <motion.div
                         whileHover={{ scale: .97 }}
                         transition={{ duration: .45 }}
-                        className="img-portrait">
+                        onHoverStart={() => {
+                            controlsHideTitle.start({
+                                y: -50,
+                                opacity: 1,
+                                transition: { duration: .35 },
+                            })
+
+                            controlShowTitle.start({
+                                y: -25,
+                                x: 8,
+                                transition: { duration: .35 }
+                            })
+                        }}
+                        onHoverEnd={() => {
+                            controlsHideTitle.start({
+                                y: 0,
+                                opacity: 1,
+                                transition: { duration: .35 },
+                            })
+
+                            controlShowTitle.start({
+                                y: 20,
+                                transition: { duration: .35 }
+                            })
+
+                        }}
+                        className={hidden}
+                    >
                         <a href="#" className="img-link">
                             <motion.img
-                                whileHover={{ scale: 1.1 }}
+                                whileHover={{ scale: 1.15 }}
                                 transition={{ duration: .45 }}
                                 initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW_med.jpeg" alt="Picture of the red and silver BMW" />
                         </a>
                     </motion.div>
-                    <motion.h2 variants={nonHoverTitleVariant} initial="initial" animate="animate" className="non-hover-title"><span className="img-title--styles">BMW - </span><span className="img-category--styles">Car</span></motion.h2>
-                    <motion.h2 variants={h2Variant} initial="initial" animate="animate" className="hover-title--styles">Browse all photos from this session</motion.h2>
-                </div>
+
+                    <div className="title-container overflow-hid">
+                        <motion.h2
+                            animate={controlsHideTitle}
+                            className="non-hover-title"
+                        >
+                            <span className="img-title--styles">BMW - </span>
+                            <span className="img-category--styles">Car</span>
+                        </motion.h2>
+                        <motion.h2
+                            animate={controlShowTitle}
+                            className="hover-title--styles"
+                        >
+                            Browse session
+                    </motion.h2>
+                    </div>
+                </motion.div>
             </div>
 
 
 
 
 
-        </div>
+        </div >
     )
 }
