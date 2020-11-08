@@ -123,5 +123,8 @@
 }
 
 .title-container {
-    height: 23px,
+    height: 23px;
+    @include media(">=desktop") { 
+        height: 28px;
+    }
 }
