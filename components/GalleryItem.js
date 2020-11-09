@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-
 export default function GalleryItem(props) {
 
     const controlsHideTitle = useAnimation();
@@ -16,7 +15,6 @@ export default function GalleryItem(props) {
         }, 1400);
         return () => clearInterval(interval);
     }, [])
-
     return (
         <div className="gallery-wrapper-item">
             <motion.div

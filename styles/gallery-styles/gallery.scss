@@ -2,6 +2,11 @@
 @import "../colors.scss";
 @import "../fonts.scss";
 
+.loading-txt {
+    font-family: $font-main;
+    color: $primary-clr;
+}
+
 .gallery-wrapper {
     height: auto;
     margin: 32px 32px 0px 32px;
@@ -9,6 +14,15 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+     @include media(">=tablet") { 
+        margin: 96px 32px 0px 32px;
+    }
+    @include media(">=desktop") { 
+        margin: 192px 32px 0px 32px;
+    }
+    @include media(">=LGdesktop") { 
+        margin: 384px 32px 0px 32px;
+    }
 }
 
 .overflow-hid {

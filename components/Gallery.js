@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-import Prismic from 'prismic-javascript';
+import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
@@ -10,7 +10,6 @@ const transition = { delay: .6, duration: .8, ease: [.6, .01, -.05, .9] };
 const transition2 = { delay: 1.2, duration: 1, ease: [.6, .01, -.05, .9] };
 
 let topOut;
-console.log(topOut);
 // in order to make imgVariant animation responsive
 // I have to somehow get the img ref x(left) and y (top) to the initial state of this variant
 // GOAL:  
@@ -35,27 +34,32 @@ const imgVariant = {
 
 
 export default function Gallery() {
-    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2'
-    const accessToken = '' // This is where you would add your access token for a Private repository
 
-    const Client = Prismic.client(apiEndpoint, { accessToken })
+    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
+    const accessToken = '';
+
+    const Client = Prismic.client(apiEndpoint, { accessToken });
+    const [galleryItems, setGalleryItemsData] = useState(null);
+
+    console.log(galleryItems);
     
+    // animate variables
     const controlsHideTitle = useAnimation();
     const controlShowTitle = useAnimation();
 
     const [hidden, setHidden] = useState(" ");
-    const [doc, setDocData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await Client.query(
-                Prismic.Predicates.at('document.type', 'page')
+                Prismic.Predicates.at('document.type', 'gallery_item')
             )
             if (response) {
-                setDocData(response.results[0])
+                setGalleryItemsData(response.results)
             }
         }
         fetchData()
+
 
         const interval = setInterval(() => {
             setHidden("overflow-hid");
@@ -63,79 +67,81 @@ export default function Gallery() {
         return () => clearInterval(interval);
     }, [])
 
-    console.log(doc);
-    
-    return (
-        <div className="gallery-wrapper">
+    return !galleryItems ? <h1 className="loading-txt">Loading...</h1> :
+        (
+            <div className="gallery-wrapper">
 
-            {/* first image to be animated in */}
-            <div className="gallery-wrapper-item">
-                <div className="gallery-item-content">
-                    <motion.div
-                        whileHover={{ scale: .97 }}
-                        transition={{ duration: .45 }}
-                        onHoverStart={() => {
-                            controlsHideTitle.start({
-                                y: -50,
-                                opacity: 1,
-                                transition: { duration: .35 },
-                            })
+                {/* first image to be animated in */}
+                <div className="gallery-wrapper-item">
+                    <div className="gallery-item-content">
+                        <motion.div
+                            whileHover={{ scale: .97 }}
+                            transition={{ duration: .45 }}
+                            onHoverStart={() => {
+                                controlsHideTitle.start({
+                                    y: -50,
+                                    opacity: 1,
+                                    transition: { duration: .35 },
+                                })
 
-                            controlShowTitle.start({
-                                y: -25,
-                                x: 8,
-                                transition: { duration: .35 }
-                            })
-                        }}
-                        onHoverEnd={() => {
-                            controlsHideTitle.start({
-                                y: 0,
-                                opacity: 1,
-                                transition: { duration: .35 },
-                            })
+                                controlShowTitle.start({
+                                    y: -25,
+                                    x: 8,
+                                    transition: { duration: .35 }
+                                })
+                            }}
+                            onHoverEnd={() => {
+                                controlsHideTitle.start({
+                                    y: 0,
+                                    opacity: 1,
+                                    transition: { duration: .35 },
+                                })
 
-                            controlShowTitle.start({
-                                y: 20,
-                                transition: { duration: .35 }
-                            })
+                                controlShowTitle.start({
+                                    y: 20,
+                                    transition: { duration: .35 }
+                                })
 
-                        }}
-                        className={hidden}
-                    >
-                        <a href="#" className="img-link">
-                            <motion.img
-                                whileHover={{ scale: 1.15 }}
-                                transition={{ duration: .45 }}
-                                variants={imgVariant}
-                                initial="initial"
-                                animate="animate"
-                                className="animated-intro-img"
-                                src="/bothBMW_med.jpeg"
-                                alt="Picture of the red and silver BMW"
-                            />
-                        </a>
-                    </motion.div>
-                    <div className="title-container overflow-hid">
-                        <motion.h2
-                            animate={controlsHideTitle}
-                            className="non-hover-title"
+                            }}
+                            className={hidden}
                         >
-                            <span className="img-title--styles">BMW - </span>
-                            <span className="img-category--styles">Car</span>
-                        </motion.h2>
-                        <motion.h2
-                            animate={controlShowTitle}
-                            className="hover-title--styles"
-                        >
-                            Browse session
+                            <a href="#" className="img-link">
+                                <motion.img
+                                    whileHover={{ scale: 1.15 }}
+                                    transition={{ duration: .45 }}
+                                    variants={imgVariant}
+                                    initial="initial"
+                                    animate="animate"
+                                    className="animated-intro-img"
+                                    src="/bothBMW_med.jpeg"
+                                    alt="Picture of the red and silver BMW"
+                                />
+                            </a>
+                        </motion.div>
+                        <div className="title-container overflow-hid">
+                            <motion.h2
+                                animate={controlsHideTitle}
+                                className="non-hover-title"
+                            >
+                                <span className="img-title--styles">BMW - </span>
+                                <span className="img-category--styles">Car</span>
+                            </motion.h2>
+                            <motion.h2
+                                animate={controlShowTitle}
+                                className="hover-title--styles"
+                            >
+                                Browse session
                     </motion.h2>
+                        </div>
                     </div>
                 </div>
+
+                {
+                    galleryItems.map((item, index) => (
+                        <GalleryItem />
+                    ))
+                }
             </div>
-
-            <GalleryItem />
-            <GalleryItem />
-
-        </div>
-    )
+        )
 }
+

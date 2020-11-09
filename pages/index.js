@@ -6,6 +6,7 @@ const Meta = dynamic(() => import("../components/Meta"));
 const Loader = dynamic(() => import("../components/Loader"));
 const Header = dynamic(() => import("../components/Header"));
 const Gallery = dynamic(() => import("../components/Gallery"));
+
 export default function Home() {
 
   const pageWrapperRef = useRef();
@@ -19,10 +20,6 @@ export default function Home() {
 
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-    console.log(" ");
-    console.log("----------------");
-    console.log(`viewport width: ${vw} viewport height: ${vh}`);
 
   }, [])
 
