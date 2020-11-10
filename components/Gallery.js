@@ -3,12 +3,23 @@ import { useEffect, useState, useRef } from "react";
 import { useAnimation, motion } from "framer-motion";
 import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
+import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
 
 export default function Gallery() {
-    const transition = { delay: .6, duration: .8, ease: [.6, .01, -.05, .9] };
+    const transition = { duration: 1.8, ease: [.6, .01, -.05, .9] };
+
+    const loadingVariant = {
+        initial: {
+            y: 0,
+        },
+        animate: {
+            y: -1200,
+            transition: {  ...transition },
+        }
+    }
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -43,19 +54,32 @@ export default function Gallery() {
         return () => clearInterval(interval);
     }, [])
 
-    return !galleryItems ? <h1 className="loading-txt">Loading...</h1> :
-        (
-            <div className="gallery-wrapper">
-                {
-                    galleryItems.map((item, index) => (
-                        <GalleryItem
-                            img={item.data.gallery_image.url}
-                            title={item.data.gallery_item_title[0].text}
-                            category={item.data.category[0].text}
-                            photoshootLink={item.data.photoshoot_session_link.url} />
-                    ))
-                }
+    return !galleryItems ?
+        <div className="loading-container">
+            <div className="loading-txt-container">
+                <h1 className="loading-txt">98%</h1>
             </div>
+        </div> :
+        (
+            <>
+                <motion.div initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
+                    <div className="loading-txt-container">
+                        <h1 className="loading-txt">98%</h1>
+                    </div>
+                </motion.div>
+
+                <div className="gallery-wrapper">
+                    {
+                        galleryItems.map((item, index) => (
+                            <GalleryItem
+                                img={item.data.gallery_image.url}
+                                title={item.data.gallery_item_title[0].text}
+                                category={item.data.category[0].text}
+                                photoshootLink={item.data.photoshoot_session_link.url} />
+                        ))
+                    }
+                </div>
+            </>
         )
 }
 
