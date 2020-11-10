@@ -9,14 +9,14 @@ const GalleryItem = dynamic(() => import("./GalleryItem"));
 
 
 export default function Gallery() {
-    const transition = { duration: 1.8, ease: [.5, .01, -.05, .9] };
+    const transition = { duration: 1.8, ease: [.5, .01, -.05, .5] };
 
     const loadingVariant = {
         initial: {
-            y: 0,
+            y: "0%",
         },
         animate: {
-            y: -1200,
+            y: "-120%",
             transition: {  ...transition },
         }
     }
