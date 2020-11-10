@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-export default function GalleryItem(props) {
+export default function GalleryItem({img, title, category, photoshootLink}) {
 
     const controlsHideTitle = useAnimation();
     const controlShowTitle = useAnimation();
@@ -50,11 +50,11 @@ export default function GalleryItem(props) {
                     }}
                     className={hidden}
                 >
-                    <a href="#" className="img-link">
+                    <a href={photoshootLink} className="img-link">
                         <motion.img
                             whileHover={{ scale: 1.15 }}
                             transition={{ duration: .45 }}
-                            initial="initial" animate="animate" className="animated-intro-img" src="/bothBMW_med.jpeg" alt="Picture of the red and silver BMW" />
+                            initial="initial" animate="animate" className="animated-intro-img" src={img} alt="Picture of the red and silver BMW" />
                     </a>
                 </motion.div>
 
@@ -63,8 +63,8 @@ export default function GalleryItem(props) {
                         animate={controlsHideTitle}
                         className="non-hover-title"
                     >
-                        <span className="img-title--styles">BMW - </span>
-                        <span className="img-category--styles">Car</span>
+                        <span className="img-title--styles">{title} - </span>
+                        <span className="img-category--styles">{category}</span>
                     </motion.h2>
                     <motion.h2
                         animate={controlShowTitle}

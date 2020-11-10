@@ -1,39 +1,14 @@
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useAnimation, motion } from "framer-motion";
 import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
-const transition = { delay: .6, duration: .8, ease: [.6, .01, -.05, .9] };
-const transition2 = { delay: 1.2, duration: 1, ease: [.6, .01, -.05, .9] };
-
-let topOut;
-// in order to make imgVariant animation responsive
-// I have to somehow get the img ref x(left) and y (top) to the initial state of this variant
-// GOAL:  
-// [] get Ref variable to initial variant x variable
-
-const imgVariant = {
-    initial: {
-        width: "210%",
-        height: "auto",
-        overflow: "hidden",
-        x: -218,
-        y: -81,
-    },
-    animate: {
-        x: 0,
-        y: 0,
-        width: "100%",
-        height: "auto",
-        transition: { duration: 2, ...transition }
-    },
-}
-
 
 export default function Gallery() {
+    const transition = { delay: .6, duration: .8, ease: [.6, .01, -.05, .9] };
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -41,13 +16,14 @@ export default function Gallery() {
     const Client = Prismic.client(apiEndpoint, { accessToken });
     const [galleryItems, setGalleryItemsData] = useState(null);
 
-    console.log(galleryItems);
-    
     // animate variables
     const controlsHideTitle = useAnimation();
     const controlShowTitle = useAnimation();
 
     const [hidden, setHidden] = useState(" ");
+
+    const imgRef = useRef();
+    console.log(imgRef.current);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -63,15 +39,31 @@ export default function Gallery() {
 
         const interval = setInterval(() => {
             setHidden("overflow-hid");
-        }, 1400);
+        }, 1600);
         return () => clearInterval(interval);
     }, [])
 
     return !galleryItems ? <h1 className="loading-txt">Loading...</h1> :
         (
             <div className="gallery-wrapper">
+                {
+                    galleryItems.map((item, index) => (
+                        <GalleryItem
+                            img={item.data.gallery_image.url}
+                            title={item.data.gallery_item_title[0].text}
+                            category={item.data.category[0].text}
+                            photoshootLink={item.data.photoshoot_session_link.url} />
+                    ))
+                }
+            </div>
+        )
+}
 
-                {/* first image to be animated in */}
+
+// animated image unusued as of now
+// might use later
+
+{/* first image to be animated in
                 <div className="gallery-wrapper-item">
                     <div className="gallery-item-content">
                         <motion.div
@@ -107,6 +99,7 @@ export default function Gallery() {
                         >
                             <a href="#" className="img-link">
                                 <motion.img
+                                    ref={imgRef}
                                     whileHover={{ scale: 1.15 }}
                                     transition={{ duration: .45 }}
                                     variants={imgVariant}
@@ -134,14 +127,28 @@ export default function Gallery() {
                     </motion.h2>
                         </div>
                     </div>
-                </div>
+                </div> */}
+// const transition2 = { delay: 1.2, duration: 1, ease: [.6, .01, -.05, .9] };
 
-                {
-                    galleryItems.map((item, index) => (
-                        <GalleryItem />
-                    ))
-                }
-            </div>
-        )
-}
+    // let topOut;
+    // // in order to make imgVariant animation responsive
+    // // I have to somehow get the img ref x(left) and y (top) to the initial state of this variant
+    // // GOAL:  
+    // // [] get Ref variable to initial variant x variable
 
+    // const imgVariant = {
+    //     initial: {
+    //         width: "210%",
+    //         height: "auto",
+    //         overflow: "hidden",
+    //         x: -218,
+    //         y: -81,
+    //     },
+    //     animate: {
+    //         x: 0,
+    //         y: 0,
+    //         width: "100%",
+    //         height: "auto",
+    //         transition: { duration: 2, ...transition }
+    //     },
+    // }
