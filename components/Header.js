@@ -65,7 +65,7 @@ export default function Header(props) {
                 </motion.span>
             </motion.div>
             <nav className="main-nav main-nav--styles">
-                <Link href="/">
+                <Link href="/about">
                     <a className="link link--styles">about</a>
                 </Link>
                 <Link href="/">

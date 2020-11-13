@@ -9,7 +9,7 @@ const GalleryItem = dynamic(() => import("./GalleryItem"));
 
 
 export default function Gallery() {
-    const transition = { duration: 1.8, ease: [.5, .01, -.05, .5] };
+    const transition = {delay: .5, duration: 1.8, ease: [.5, .01, -.05, .5] };
 
     const loadingVariant = {
         initial: {
