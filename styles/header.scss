@@ -84,8 +84,21 @@
     margin-left: 1vw;
 }
 
-.go-back--styles {
+.go-back {
+    cursor: pointer;
     align-items: center;
+
+}
+
+// .go-back:hover {
+//     transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+//     .arrow {
+//         transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+//         transform: translate3d(-.8vw,0,0);
+//     }
+// }
+
+.go-back--styles {
     font-family: $font-main;
     color: $primary-clr;
     font-size: 14px;
@@ -108,8 +121,7 @@
 }
 
 .email {
-    
-}   
+}
 
 .email--styles {
     font-family: $font-main;

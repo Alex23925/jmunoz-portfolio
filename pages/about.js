@@ -3,6 +3,7 @@ import '../styles/home.scss';
 
 const Meta = dynamic(() => import("../components/Meta"));
 const AboutHeader = dynamic(() => import("../components/AboutHeader"));
+const AboutLanding = dynamic(() => import("../components/AboutLanding"));
 
 export default function about() {
     return (
@@ -11,6 +12,7 @@ export default function about() {
                 <Meta />
                 {/* <Loader /> */}
                 <AboutHeader />
+                <AboutLanding />
             </div>
         </>
     )

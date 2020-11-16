@@ -1,0 +1,31 @@
+@import "../breakpoints.scss";
+@import "../colors.scss";
+@import "../fonts.scss";
+
+.landing {
+    @include media(">=tablet"){
+        margin: 98px 156px;
+    }
+}
+
+.greeting-txt--styles {
+    font-family: $font-sub;
+    font-weight: 800;
+    color: $primary-clr;
+    @include media(">=tablet") {
+        font-size: 81px;
+    }
+}
+
+.about-para-container {
+    margin: 64px 98px 0px 98px;
+}
+
+.about-para--styles {
+    font-family: $font-sub;
+    font-weight: 400;
+    color: $primary-clr;
+    @include media(">=tablet") {
+        font-size: 32px;
+    }
+}
