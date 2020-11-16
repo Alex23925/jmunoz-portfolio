@@ -21,11 +21,12 @@
     justify-content: space-between;
     padding: 32px 38px 0px 38px;
     overflow: hidden;
+    align-items: center;
     span {
-         display: inline-block;
-         //border: solid red 2px;
+        display: inline-block;
+        //border: solid red 2px;
     }
-    @include media(">phone") { 
+    @include media(">phone") {
         padding: 46px 128px 0px 128px;
     }
 }
@@ -35,10 +36,10 @@
     color: $primary-clr;
     font-size: 14px;
     font-weight: 800;
-    @include media(">phone") { 
+    @include media(">phone") {
         font-size: 14px;
     }
-    @include media(">tablet") { 
+    @include media(">tablet") {
         font-size: 32px;
     }
 }
@@ -52,10 +53,10 @@
     color: $primary-clr;
     font-size: 14px;
     font-weight: 800;
-    @include media(">phone") { 
+    @include media(">phone") {
         font-size: 14px;
     }
-    @include media(">tablet") { 
+    @include media(">tablet") {
         font-size: 32px;
     }
 }
@@ -69,10 +70,59 @@
     font-family: $font-sub;
     color: $primary-clr;
     font-size: 14px;
-    @include media(">phone") { 
+    @include media(">phone") {
         font-size: 16px;
     }
-    @include media(">tablet") { 
+    @include media(">tablet") {
+        font-size: 32px;
+    }
+}
+
+// About Header styles
+
+.back-txt {
+    margin-left: 1vw;
+}
+
+.go-back--styles {
+    align-items: center;
+    font-family: $font-main;
+    color: $primary-clr;
+    font-size: 14px;
+    font-weight: 500;
+    @include media(">phone") {
+        font-size: 14px;
+    }
+    @include media(">tablet") {
+        font-size: 24px;
+    }
+    @include media(">desktop") {
+        font-size: 32px;
+    }
+}
+
+.email-container {
+    cursor: pointer;
+    border-bottom: solid 8px $complimentary-clr;
+    padding: 0px 0px 8px 0px;
+}
+
+.email {
+    
+}   
+
+.email--styles {
+    font-family: $font-main;
+    color: $primary-clr;
+    font-size: 14px;
+    font-weight: 500;
+    @include media(">phone") {
+        font-size: 14px;
+    }
+    @include media(">tablet") {
+        font-size: 24px;
+    }
+    @include media(">desktop") {
         font-size: 32px;
     }
 }

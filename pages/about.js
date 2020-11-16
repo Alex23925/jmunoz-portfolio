@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import '../styles/home.scss';
 
 const Meta = dynamic(() => import("../components/Meta"));
-const Header = dynamic(() => import("../components/Header"));
+const AboutHeader = dynamic(() => import("../components/AboutHeader"));
 
 export default function about() {
     return (
@@ -10,7 +10,7 @@ export default function about() {
             <div className={`page-wrapper`} >
                 <Meta />
                 {/* <Loader /> */}
-                <Header />
+                <AboutHeader />
             </div>
         </>
     )
