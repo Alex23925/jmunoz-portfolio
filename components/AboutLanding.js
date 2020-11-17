@@ -5,11 +5,14 @@ export default function AboutLanding() {
         <>
             <section className="landing">
                 <div className="greeting-txt-container">
+                    <img className="juan-smiling" src="/juan.png" alt="juan cheesing" />
                     <h1 className="greeting-txt greeting-txt--styles">
-                        HELLO! dolor sit amet consectetur.
-                        <img className="juan-smiling" src="/juan.png" alt="juan cheesing" />
+                        <span>HELLO! dolor sit amet consectetur.</span>
                     </h1>
                     
+                </div>
+                <div className="contacts-container">
+
                 </div>
                 <div className="about-para-container">
                     <p className="about-para--styles">

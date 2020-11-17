@@ -11,7 +11,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     align-items: center;
 
     @include media("<=tablet"){
-        margin: 98px 40px;
+        margin: 64px 40px;
     }
 
     @include media(">=tablet"){
@@ -38,20 +38,20 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 
 .juan-smiling {
     transition: $transition;
-    float: right;
-
     @include media("<tablet") {
         width: 125px;
         height: auto;
-        float: left;
-        transform: translate3d(0,0,0);
+        transform: translate3d(-4vw,0,0);
+        margin-bottom: 24px;
     }
 
     @include media(">=tablet") {
         transform: translate3d(-8vw,0,0);
+        float: right;
     }
     @include media(">=desktop") {
         transform: translate3d(-8vw,10vh,0);
+        float: right;
     }
 }
 .about-para-container {
@@ -72,7 +72,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     color: $primary-clr;
 
     @include media("<=tablet"){
-        font-size: 32px;
+        font-size: 24px;
         line-height: 1.4;
     }
 
