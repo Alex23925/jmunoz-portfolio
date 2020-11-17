@@ -80,15 +80,6 @@
 
 // About Header styles
 
-.back-txt {
-    margin-left: 1vw;
-}
-
-.go-back {
-    cursor: pointer;
-    align-items: center;
-
-}
 
 // .go-back:hover {
 //     transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
@@ -103,33 +94,27 @@
     color: $primary-clr;
     font-size: 14px;
     font-weight: 500;
-    @include media(">phone") {
-        font-size: 14px;
-    }
-    @include media(">tablet") {
+    @include media("<tablet") {
         font-size: 24px;
     }
-    @include media(">desktop") {
+    @include media(">=tablet") {
+        font-size: 24px;
+    }
+    @include media(">=desktop") {
         font-size: 32px;
     }
 }
 
-.email-container {
+.calendar-container {
     cursor: pointer;
-    border-bottom: solid 8px $complimentary-clr;
-    padding: 0px 0px 8px 0px;
 }
 
-.email {
-}
-
-.email--styles {
+.calendar--styles {
     font-family: $font-main;
     color: $primary-clr;
-    font-size: 14px;
     font-weight: 500;
-    @include media(">phone") {
-        font-size: 14px;
+    @include media("<tablet") {
+        font-size: 20px;
     }
     @include media(">tablet") {
         font-size: 24px;

@@ -17,18 +17,13 @@ export default function AboutHeader() {
                 <div className="go-back-container go-back-container--stlyles">
                     <Link href="/">
                         <a className="go-back go-back--styles">
-                            <span className="arrow">
-                                {arrow}
-                            </span>
-                            <span className="back-txt">
-                                back
-                            </span>
+                           JM
                         </a>
                     </Link>
                 </div>
-                <div className="email-container">
-                    <h1 className="email email--styles">
-                        jmunoz23925@gmail.com
+                <div className="calendar-container">
+                    <h1 className="calendar calendar--styles">
+                        calendar
                     </h1>
                 </div>
             </section>
