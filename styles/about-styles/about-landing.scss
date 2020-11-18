@@ -20,28 +20,12 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     }
 }
 
-.greeting-txt--styles {
-    font-family: $font-sub;
-    font-weight: 800;
-    color: $primary-clr;
-
-    @include media("<=tablet") {
-        font-size: 24px;
-        line-height: 1.2;
-    }
-
-    @include media(">=tablet") {
-        font-size: 81px;
-        line-height: 1.2;
-    }
-}
-
 .juan-smiling {
     transition: $transition;
     @include media("<tablet") {
-        width: 125px;
+        width: 250px;
         height: auto;
-        transform: translate3d(-4vw,0,0);
+        transform: translate3d(0,0,0);
         margin-bottom: 24px;
     }
 
@@ -54,6 +38,69 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
         float: right;
     }
 }
+
+.greeting-txt-container {
+    @include media("<=tablet"){
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+.quoter {
+    font-weight: 400;
+}
+
+.greeting-txt--styles {
+    font-family: $font-sub;
+    font-style: italic;
+    font-weight: 800;
+    color: $primary-clr;
+
+    @include media("<=tablet") {
+        font-size: 30px;
+        line-height: 1.4;
+    }
+
+    @include media(">=tablet") {
+        font-size: 81px;
+        line-height: 1.2;
+    }
+}
+
+.contacts-container {
+    display:flex;
+    flex-direction: column;
+    @include media("<=tablet"){
+        margin-top: 48px;
+        margin-bottom: 48px;
+    }
+}
+
+.contact{
+    display: block;
+     @include media("<=tablet"){
+        margin-bottom: 24px;
+    }
+}
+
+.contact--styles{
+    font-family: $font-main;
+    font-weight: 400;
+    color: $primary-clr;
+
+    @include media("<=tablet"){
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    @include media(">=tablet") {
+        font-size: 36px;
+        line-height: 1.4;
+    }
+}
+
 .about-para-container {
     transition: $transition;
 
