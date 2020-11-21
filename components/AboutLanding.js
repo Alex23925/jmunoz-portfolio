@@ -1,6 +1,14 @@
 import "../styles/about-styles/about-landing.scss";
 
 export default function AboutLanding() {
+    const Mailto = ({ email, subject = '', body = '', children }) => {
+        let params = subject || body ? '?' : '';
+        if (subject) params += `subject=${encodeURIComponent(subject)}`;
+        if (body) params += `${subject ? '&' : ''}body=${encodeURIComponent(body)}`;
+
+        return <a className="contact contact--styles" href={`mailto:${email}${params}`}>{children}</a>;
+    };
+    
     return (
         <>
             <section className="landing">
@@ -13,12 +21,12 @@ export default function AboutLanding() {
 
                 </div>
                 <div className="contacts-container">
-                    <a href="" className="contact contact--styles">
+                    <a href="https://www.instagram.com/wowafk7/" className="contact contact--styles">
                         Instagram
                     </a>
-                    <a href="" className="contact contact--styles">
-                        jmunoz23925@gmail.com
-                    </a>
+                    <Mailto email="jmunoz23925@gmail.com" subject=" " body=" ">
+                        jmunoz23925@gmail.com 
+                    </Mailto>
                     <a href="" className="contact contact--styles">
                         Book a session
                     </a>
