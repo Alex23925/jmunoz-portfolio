@@ -29,6 +29,9 @@
     @include media(">phone") {
         padding: 46px 128px 0px 128px;
     }
+    @include media(">desktop"){
+        padding: 46px 156px 0px 156px;
+    }
 }
 
 .first-name--styles {

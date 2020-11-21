@@ -15,7 +15,11 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     }
 
     @include media(">=tablet"){
-        margin: 98px 96px;
+        margin: 98px 128px;
+        
+    }
+    @include media(">=desktop"){
+        margin: 98px 328px;
         
     }
 }
@@ -65,6 +69,10 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 
     @include media(">=tablet") {
         font-size: 64px;
+        line-height: 1.2;
+    }
+    @include media(">=desktop") {
+        font-size: 128px;
         line-height: 1.2;
     }
 }
