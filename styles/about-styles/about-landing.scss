@@ -30,7 +30,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     }
 
     @include media(">=tablet") {
-        transform: translate3d(-8vw,0,0);
+        transform: translate3d(0,0,0);
         float: right;
     }
     @include media(">=desktop") {
@@ -64,7 +64,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     }
 
     @include media(">=tablet") {
-        font-size: 81px;
+        font-size: 72px;
         line-height: 1.2;
     }
 }
@@ -81,6 +81,9 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 .contact{
     display: block;
      @include media("<=tablet"){
+        margin-bottom: 24px;
+    }
+    @include media(">=tablet"){
         margin-bottom: 24px;
     }
 }
@@ -127,4 +130,44 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
         font-size: 36px;
         line-height: 1.4;
     }
+}
+
+.coded-by-container {
+    margin-top: 128px;
+    @include media("<=tablet"){
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.coder-img {
+    transition: $transition;
+    @include media("<tablet") {
+        width: 100px;
+        height: auto;
+        transform: translate3d(0,0,0);
+        margin-bottom: 24px;
+    }
+
+    @include media(">=tablet") {
+        transform: translate3d(0,0,0);
+        float: right;
+    }
+}
+
+.coder-name--styles {
+    font-family: $font-sub;
+    color: $primary-clr;
+    
+    @include media("<=tablet"){
+        font-size: 12px;
+    }
+}
+
+.coder-link--styles {
+    font-family: $font-sub;
+    font-weight: 800;
+    color: $primary-clr;
+    font-style: italic;
 }

@@ -28,6 +28,12 @@ export default function AboutLanding() {
                         Straight from the Bay Area, Juan has been capturing memories for as long he could remember before realizing his talent and really pursuing the art of photography. Specializing in  photographing cars, he is able to capture his subject and its environment effortlessly. He uses the beautiful scenes found naturally all across the Bay Area and it shows how well they are portrayed in his work.
                     </p>
                 </div>
+                <section className="coded-by-container">
+                    <img className="coder-img" src="/ale.png" alt="Alejandro memoji"/>
+                    <h1 className="coder-name coder-name--styles">
+                        Code and Design by <a className="coder-link--styles" href="https://aleh.netlify.app/">Alejandro Hernandez</a>
+                    </h1>
+                </section>
             </section>
         </>
     )
