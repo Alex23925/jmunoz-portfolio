@@ -38,7 +38,11 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
         float: right;
     }
     @include media(">=desktop") {
-        transform: translate3d(-8vw,10vh,0);
+        transform: translate3d(4vw,10vh,0);
+        float: right;
+    }
+     @include media(">=LGdesktop") {
+        transform: translate3d(-4vw,10vh,0);
         float: right;
     }
 }
@@ -72,6 +76,10 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
         line-height: 1.2;
     }
     @include media(">=desktop") {
+        font-size: 96px;
+        line-height: 1.2;
+    }
+    @include media(">=LGdesktop") {
         font-size: 128px;
         line-height: 1.2;
     }
