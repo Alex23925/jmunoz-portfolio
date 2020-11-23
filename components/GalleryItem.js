@@ -1,7 +1,8 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-export default function GalleryItem({img, title, category, photoshootLink}) {
+export default function GalleryItem({ img, title, category, photoshootLink }) {
 
     const controlsHideTitle = useAnimation();
     const controlShowTitle = useAnimation();
@@ -50,12 +51,14 @@ export default function GalleryItem({img, title, category, photoshootLink}) {
                     }}
                     className={hidden}
                 >
-                    <a href={photoshootLink} className="img-link">
-                        <motion.img
-                            whileHover={{ scale: 1.15 }}
-                            transition={{ duration: .45 }}
-                            initial="initial" animate="animate" className="animated-intro-img" src={img} alt="Picture of the red and silver BMW" />
-                    </a>
+                    <Link as={`/${category}/${photoshootLink}`} href="/[category]/[session]">
+                        <a className="img-link">
+                            <motion.img
+                                whileHover={{ scale: 1.15 }}
+                                transition={{ duration: .45 }}
+                                initial="initial" animate="animate" className="animated-intro-img" src={img} alt="Picture of the red and silver BMW" />
+                        </a>
+                    </Link>
                 </motion.div>
 
                 <div className="title-container overflow-hid">

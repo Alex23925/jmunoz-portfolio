@@ -75,7 +75,7 @@ export default function Gallery() {
                                 img={item.data.gallery_image.url}
                                 title={item.data.gallery_item_title[0].text}
                                 category={item.data.category[0].text}
-                                photoshootLink={item.data.photoshoot_session_link.url} />
+                                photoshootLink={item.data.gallery_item_title[0].text} />
                         ))
                     }
                 </div>
