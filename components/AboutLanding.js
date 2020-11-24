@@ -25,11 +25,8 @@ export default function AboutLanding() {
                         Instagram
                     </a>
                     <Mailto email="jmunoz23925@gmail.com" subject=" " body=" ">
-                        jmunoz23925@gmail.com 
+                        Get in contact
                     </Mailto>
-                    <a href="" className="contact contact--styles">
-                        Book a session
-                    </a>
                 </div>
                 <div className="about-para-container">
                     <p className="about-para--styles">
