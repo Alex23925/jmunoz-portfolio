@@ -133,7 +133,10 @@
 
 .title-container {
     height: 23px;
+    @include media(">=tablet") { 
+        height: 25px;
+    }
     @include media(">=desktop") { 
-        height: 28px;
+        height: 32px;
     }
 }
