@@ -23,7 +23,7 @@ export default function AboutHeader() {
                 </div>
                 <div className="calendar-container">
                     <h1 className="calendar calendar--styles">
-                        calendar
+                        
                     </h1>
                 </div>
             </section>

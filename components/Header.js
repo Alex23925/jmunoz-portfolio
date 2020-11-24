@@ -68,9 +68,7 @@ export default function Header(props) {
                 <Link href="/about">
                     <a className="link link--styles">about</a>
                 </Link>
-                <Link href="/">
-                    <a className="link link--styles">contact</a>
-                </Link>
+                
             </nav>
         </motion.div>
     )

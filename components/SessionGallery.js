@@ -39,7 +39,7 @@ export default function Gallery({sessionName}) {
     useEffect(() => {
         const fetchData = async () => {
             const response = await Client.query(
-                Prismic.Predicates.at('document.type', sessionName)
+                Prismic.Predicates.at('document.type', sessionName.toLowerCase())
             )
             if (response) {
                 setGalleryItemsData(response.results)
