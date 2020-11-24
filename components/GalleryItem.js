@@ -66,8 +66,7 @@ export default function GalleryItem({ img, title, category, photoshootLink }) {
                         animate={controlsHideTitle}
                         className="non-hover-title"
                     >
-                        <span className="img-title--styles">{title} - </span>
-                        <span className="img-category--styles">{category}</span>
+                        <span className="img-title--styles">{title}</span>
                     </motion.h2>
                     <motion.h2
                         animate={controlShowTitle}

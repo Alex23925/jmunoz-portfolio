@@ -71,7 +71,6 @@ export default function Gallery({sessionName}) {
                     {
                         
                         galleryItems.map((item, index) => (
-                            console.log(index),
                             <GalleryItem
                                 img={item.data.shoot_image.url}
                                 title={item.data.shoot_title[0].text}
