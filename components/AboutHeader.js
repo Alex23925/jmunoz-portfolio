@@ -23,7 +23,9 @@ export default function AboutHeader() {
                 </div>
                 <div className="calendar-container">
                     <h1 className="calendar calendar--styles">
-                        
+                        <Link href="/about">
+                        <a className="link link--styles">about</a>
+                    </Link>
                     </h1>
                 </div>
             </section>

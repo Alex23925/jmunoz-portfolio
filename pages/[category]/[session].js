@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Prismic from "prismic-javascript";
 import '../../styles/home.scss';
 
-const Header = dynamic(() => import("../../components/Header"));
+const Header = dynamic(() => import("../../components/AboutHeader"));
 const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 
 export default function Session() {

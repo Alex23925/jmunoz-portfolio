@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useEffect } from "react";
-
 import { motion } from "framer-motion";
 import "../styles/header.scss";
 
