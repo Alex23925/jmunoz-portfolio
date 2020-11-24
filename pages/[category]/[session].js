@@ -10,6 +10,7 @@ const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 
 export default function Session() {
     const router = useRouter();
+    const routerSession = router.query.session;
     console.log(router.query.session);
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
@@ -18,13 +19,12 @@ export default function Session() {
     const Client = Prismic.client(apiEndpoint, { accessToken });
     const [galleryItems, setGalleryItemsData] = useState(null);
 
-
     return (
         <div className={`page-wrapper`} >
             <>
                 <Header />
-                <SessionGallery />
-            </>
+                <SessionGallery sessionName={routerSession} />
+            </> 
         </div>
     )
 }
