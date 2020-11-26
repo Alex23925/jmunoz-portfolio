@@ -9,7 +9,7 @@ const GalleryItem = dynamic(() => import("./GalleryItem"));
 
 
 export default function Gallery() {
-    const transition = {delay: .5, duration: 1.8, ease: [.5, .01, -.05, .5] };
+    const transition = { delay: .5, duration: 1.6, ease: [.5, .01, -.05, .5] };
 
     const loadingVariant = {
         initial: {
@@ -17,7 +17,15 @@ export default function Gallery() {
         },
         animate: {
             y: "-120%",
-            transition: {  ...transition },
+            transition: { ...transition },
+        }
+    }
+
+    const stagger = {
+        animate: {
+            transition: {
+                staggerChildren: .1,
+            }
         }
     }
 
@@ -68,7 +76,7 @@ export default function Gallery() {
                     </div>
                 </motion.div>
 
-                <div className="gallery-wrapper">
+                <motion.div variants={stagger} className="gallery-wrapper">
                     {
                         galleryItems.map((item, index) => (
                             <GalleryItem
@@ -79,7 +87,7 @@ export default function Gallery() {
                                 photoshootLink={item.data.gallery_item_title[0].text} />
                         ))
                     }
-                </div>
+                </motion.div>
             </>
         )
 }

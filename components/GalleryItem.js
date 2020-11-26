@@ -5,19 +5,27 @@ import { useAnimation, motion } from "framer-motion";
 
 export default function GalleryItem({ index, img, title, category, photoshootLink }) {
 
-    const easing = [.6, -.05, .01, .99];
+    const easing = [.25, .1, .25, 1];
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let x;
 
+    if (vw < 650) {
+        x = 0;
+    } else (
+        x = (index % 2) === 0 ? '-7.8vw' : '7.8vw'
+    )
+    console.log(vw);
     const fadeInUp = {
         initial: {
-            x: (index % 2) === 0 ? '-7.8vw' : '7.8vw',
-            opacity: 0,
+            y: 100,
+            x: x,
         },
         animate: {
-            x: (index % 2) === 0 ? '-7.8vw' : '7.8vw',
-            opacity: 1,
+            y: 0,
+            x: x,
             transition: {
-                delay: 1,
-                duration: .6,
+                delay: .7,
+                duration: .4,
                 ease: easing,
             }
         }
