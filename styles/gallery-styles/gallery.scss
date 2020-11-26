@@ -2,6 +2,11 @@
 @import "../colors.scss";
 @import "../fonts.scss";
 
+:root {
+    --leftPicX: -7.8vw;
+    --rightPicX: 7.8vw; 
+}
+
 .gallery-wrapper {
     height: auto;
     margin: 32px 32px 0px 32px;
@@ -34,19 +39,19 @@
     @include media(">=tablet") { 
         width: 450px;
         height: auto; 
-        transform: translate3d(-7.8vw,0,0);
+        transform: translate3d(var(--leftPicX),0,0);
         margin-bottom: 156px;
     }
     @include media(">=desktop") { 
         width: 600px;
         height: auto; 
-        transform: translate3d(-7.8vw,0,0);
+        transform: translate3d(var(--leftPicX),0,0);
         margin-bottom: 156px;
     }
     @include media(">=LGdesktop") { 
         width: 650px;
         height: auto;
-        transform: translate3d(-7.8vw,0,0);
+        transform: translate3d(var(--leftPicX),0,0);
         margin-bottom: 156px; 
     }
 }
@@ -60,20 +65,20 @@
     @include media(">=tablet") {
         width: 450px;
         height: auto; 
-        transform: translate3d(7.8vw,0,0);
+        transform: translate3d(var(--rightPicX),0,0);
         right: 0%; 
         margin-bottom: 156px;
     }
     @include media(">=desktop") { 
         width: 600px;
         height: auto; 
-        transform: translate3d(7.8vw,0,0);
+        transform: translate3d(var(--rightPicX),0,0);
         margin-bottom: 156px;
     }
     @include media(">=LGdesktop") { 
         width: 650px;
         height: auto;
-        transform: translate3d(7.8vw,0,0);
+        transform: translate3d(var(--rightPicX),0,0);
         
         margin-bottom: 156px;
     }

@@ -2,7 +2,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
-export default function GalleryItem({ img, title, category, photoshootLink }) {
+
+export default function GalleryItem({ index, img, title, category, photoshootLink }) {
+
+    const easing = [.6, -.05, .01, .99];
+
+    const fadeInUp = {
+        initial: {
+            x: (index % 2) === 0 ? '-7.8vw' : '7.8vw',
+            opacity: 0,
+        },
+        animate: {
+            x: (index % 2) === 0 ? '-7.8vw' : '7.8vw',
+            opacity: 1,
+            transition: {
+                delay: 1,
+                duration: .6,
+                ease: easing,
+            }
+        }
+    };
 
     const controlsHideTitle = useAnimation();
     const controlShowTitle = useAnimation();
@@ -17,7 +36,7 @@ export default function GalleryItem({ img, title, category, photoshootLink }) {
         return () => clearInterval(interval);
     }, [])
     return (
-        <div className="gallery-wrapper-item">
+        <motion.div initial="initial" animate="animate" variants={fadeInUp} className="gallery-wrapper-item">
             <motion.div
                 className="gallery-item-content">
                 <motion.div
@@ -76,6 +95,6 @@ export default function GalleryItem({ img, title, category, photoshootLink }) {
                     </motion.h2>
                 </div>
             </motion.div>
-        </div>
+        </motion.div>
     )
 }

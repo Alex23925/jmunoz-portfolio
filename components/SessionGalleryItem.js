@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function GalleryItem({ img, title, category, photoshootLink }) {
+export default function GalleryItem({ img, title,}) {
 
     return (
         <div className="gallery-wrapper-item">

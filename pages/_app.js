@@ -7,7 +7,11 @@ function MyApp({ Component, pageProps }) {
 
   Router.events.on("routerChangeStart", () => setLoading(true));
 
-  return <Component {...pageProps} />
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <Component {...pageProps} />
+    </AnimatePresence>
+  )
 
 }
 

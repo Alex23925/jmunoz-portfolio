@@ -72,6 +72,7 @@ export default function Gallery() {
                     {
                         galleryItems.map((item, index) => (
                             <GalleryItem
+                                index={index}
                                 img={item.data.gallery_image.url}
                                 title={item.data.gallery_item_title[0].text}
                                 category={item.data.category[0].text}
