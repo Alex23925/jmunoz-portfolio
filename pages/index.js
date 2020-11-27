@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import '../styles/home.scss';
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Meta = dynamic(() => import("../components/Meta"));
 const Loader = dynamic(() => import("../components/Loader"));
@@ -9,26 +9,25 @@ const Gallery = dynamic(() => import("../components/Gallery"));
 
 export default function Home() {
 
+  const [canScroll, setCanScroll] = useState(false);
+
   const pageWrapperRef = useRef();
 
   useEffect(() => {
-    const pageBounds = pageWrapperRef.current.getBoundingClientRect();
+    if (canScroll === false) {
+      document.querySelector("body").classList.add("no-scroll");
+    } else {
+      document.querySelector("body").classList.remove("no-scroll");
+    }
+  }, [canScroll])
 
-
-    let top = pageBounds.y;
-    let left = pageBounds.x;
-
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-  }, [])
 
   return (
-    <div ref={pageWrapperRef} className={`page-wrapper`} >
+    <div ref={pageWrapperRef} className={`page-wrapper lock`} >
       <Meta />
       {/* <Loader /> */}
       <Header />
-      <Gallery />
+      <Gallery setCanScroll={setCanScroll} />
     </div>
   )
 }

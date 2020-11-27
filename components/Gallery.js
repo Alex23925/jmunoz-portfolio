@@ -8,8 +8,8 @@ import "../styles/gallery-styles/loading-gallery.scss";
 const GalleryItem = dynamic(() => import("./GalleryItem"));
 
 
-export default function Gallery() {
-    const transition = { delay: .5, duration: 1.6, ease: [.5, .01, -.05, .5] };
+export default function Gallery({ setCanScroll }) {
+    const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
 
     const loadingVariant = {
         initial: {
@@ -57,7 +57,7 @@ export default function Gallery() {
 
 
         const interval = setInterval(() => {
-            setHidden("overflow-hid");
+            setHidden("overflow-hid lock");
         }, 1600);
         return () => clearInterval(interval);
     }, [])
@@ -70,7 +70,9 @@ export default function Gallery() {
         </div> :
         (
             <>
-                <motion.div initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
+                <motion.div
+                    onAnimationComplete={() => setCanScroll(true)}
+                    initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
                     <div className="loading-txt-container">
                         <h1 className="loading-txt">98%</h1>
                     </div>
