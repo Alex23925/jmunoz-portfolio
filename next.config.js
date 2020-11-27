@@ -3,6 +3,7 @@ const withPlugins = require('next-compose-plugins');
 
 const withSass = require("@zeit/next-sass");
 
+const withImages = require('next-images');
 
 module.exports = withPlugins(
     [
@@ -12,8 +13,15 @@ module.exports = withPlugins(
                 /* plugin config here ... */
             },
         ],
+        [
+            withImages,
+            {
+
+            }
+        ]
+
 
     ], {
-        /* global config here ... */
-    }
+    /* global config here ... */
+}
 );

@@ -4,6 +4,32 @@
 
 $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
 
+.about-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.about-header {
+    z-index: 5;
+}
+
+.img-bg-container {
+    position: absolute;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: red solid 4px;
+    z-index: -1;
+}
+
+.img-background {
+    position: relative;
+    filter: blur(8px);
+    filter: brightness(.15);
+}
+
 
 .landing {
     display:flex;
@@ -48,6 +74,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 }
 
 .greeting-txt-container {
+    z-index: 1;
     @include media("<=tablet"){
         display:flex;
         flex-direction: column;
@@ -153,6 +180,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 }
 
 .coded-by-container {
+    z-index: 1;
     margin-top: 128px;
     @include media("<tablet"){
         display:flex;

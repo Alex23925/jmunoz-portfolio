@@ -8,9 +8,11 @@ const AboutLanding = dynamic(() => import("../components/AboutLanding"));
 export default function about() {
     return (
         <>
-            <div className={`page-wrapper`} >
+            <div className={`about-page-wrapper`} >
+                <div className="img-bg-container">
+                    <img className="img-background" src="/img-og.jpg" alt="background image" />
+                </div>
                 <Meta />
-                {/* <Loader /> */}
                 <AboutHeader />
                 <AboutLanding />
             </div>

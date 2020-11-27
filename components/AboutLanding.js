@@ -13,7 +13,7 @@ export default function AboutLanding() {
         <>
             <section className="landing">
                 <div className="greeting-txt-container">
-                    <img className="juan-smiling" src="/juan.png" alt="juan cheesing" />
+                    {/* <img className="juan-smiling" src="/juan.png" alt="juan cheesing" /> */}
                     <h1 className="greeting-txt greeting-txt--styles">
                         "Work hard in silence. Let success be your Noise"
                         <span className="quoter"> - Frank Ocean</span>

@@ -14,15 +14,17 @@ export default function GalleryItem({ index, img, title, category, photoshootLin
     } else (
         x = (index % 2) === 0 ? '-7.8vw' : '7.8vw'
     )
-    console.log(vw);
+
     const fadeInUp = {
         initial: {
             y: 100,
             x: x,
+            opacity: 0,
         },
         animate: {
             y: 0,
             x: x,
+            opacity: 1,
             transition: {
                 delay: .7,
                 duration: .4,
