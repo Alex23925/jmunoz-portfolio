@@ -124,7 +124,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
     flex-direction: column;
     @include media("<=tablet"){
         margin-top: 48px;
-        margin-bottom: 48px;
+        margin-bottom: 24px;
     }
     @include media(">=tablet"){
         margin-top: 64px;
