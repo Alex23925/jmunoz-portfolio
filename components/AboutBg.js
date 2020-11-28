@@ -4,15 +4,34 @@ import {useEffect, useState} from "react";
 export default function AboutBg(){
     
     const [width, setWidth] = useState();
-    let img = "";
-    let imgTag;
+    let background;
 
     if (width < 650) {
-        img = "/mobile-bg.jpg";
-        imgTag = <img className="mobile-img-background" src="mobile-bg.jpg" alt="background image" />
+        background = <div style={{
+                        backgroundImage: "url(" + `${require("../public/mobile-bg.jpg")}` + ")",
+                        width: "100%",
+                        height: "100%",
+                        backgroundRepeat: "no-repeat",
+                        backgroundAttachment: "fixed",
+                        backgroundPosition: "center center",
+                        backgroundSize: "cover",
+                        filter: "blur(8px)",
+                        filter: "brightness(.15)",
+                    }}
+            className="img-bg-container" />
     } else {
-        img = "/img-og.jpg";
-        imgTag = <img className="img-background" src="/img-og.jpg" alt="background image" />
+        background = <div style={{
+                        backgroundImage: "url(" + `${require("../public/img-og.jpg")}` + ")",
+                        width: "100%",
+                        height: "100%",
+                        backgroundRepeat: "no-repeat",
+                        backgroundAttachment: "fixed",
+                        backgroundPosition: "center center",
+                        backgroundSize: "cover",
+                        filter: "blur(8px)",
+                        filter: "brightness(.15)",
+                    }}
+            className="img-bg-container" />
     }
 
     useEffect(() => {
@@ -21,8 +40,8 @@ export default function AboutBg(){
     }, [width])
     
     return (
-        <div className="img-bg-container">
-                {imgTag}
-        </div>
+        <>
+            {background}
+        </>
     )
 }
