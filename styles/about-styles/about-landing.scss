@@ -16,16 +16,22 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 
 .img-bg-container {
     position: absolute;
-    object-fit: contain;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    background: red solid 4px;
+    //border: 2px solid red;
     z-index: -1;
 }
 
+.mobile-img-background {
+    position: absolute;
+    right: -5vw;
+    filter: blur(8px);
+    filter: brightness(.15);
+}
+
 .img-background {
-    position: relative;
+    position: absolute;
+    object-fit: cover;
     filter: blur(8px);
     filter: brightness(.15);
 }
@@ -204,7 +210,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 
     @include media(">=tablet") {
         transform: translate3d(0,0,0);
-        width: 100px;
+        width: 80px;
         height: auto;
         transform: translate3d(0,0,0);
         margin-bottom: 24px;

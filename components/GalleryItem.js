@@ -5,7 +5,6 @@ import { useAnimation, motion } from "framer-motion";
 
 export default function GalleryItem({ index, img, title, category, photoshootLink }) {
 
-    const easing = [.25, .1, .25, 1];
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let x;
 
@@ -14,6 +13,8 @@ export default function GalleryItem({ index, img, title, category, photoshootLin
     } else (
         x = (index % 2) === 0 ? '-7.8vw' : '7.8vw'
     )
+
+    const easing = [.25, .1, .25, 1];
 
     const fadeInUp = {
         initial: {

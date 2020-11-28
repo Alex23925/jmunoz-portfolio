@@ -8,7 +8,7 @@ export default function AboutLanding() {
 
         return <a className="contact contact--styles" href={`mailto:${email}${params}`}>{children}</a>;
     };
-    
+
     return (
         <>
             <section className="landing">
