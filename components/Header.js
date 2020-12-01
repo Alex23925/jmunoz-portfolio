@@ -31,7 +31,7 @@ const lNameVariant = {
             staggerDirection: 1,
         }
     }
-}
+};
 
 const letter = {
     initial: {

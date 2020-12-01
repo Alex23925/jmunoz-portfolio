@@ -6,7 +6,7 @@ import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./GalleryItem"));
-
+const Loader = dynamic(() => import("./Loader"));
 
 export default function Gallery({ setCanScroll }) {
     const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
@@ -65,19 +65,25 @@ export default function Gallery({ setCanScroll }) {
     return !galleryItems ?
         <div className="loading-container">
             <div className="loading-txt-container">
-                <h1 className="loading-txt">98%</h1>
+                <h1 className="loading-txt"><span className="">
+                    <span>J</span>
+                    <span>U</span>
+                    <span>A</span>
+                    <span>N</span>
+                </span>
+                    <span className="loader-lname">
+                        <span>M</span>
+                        <span>U</span>
+                        <span>N</span>
+                        <span>O</span>
+                        <span>Z</span>
+                    </span>
+                </h1>
             </div>
         </div> :
         (
             <>
-                <motion.div
-                    onAnimationComplete={() => setCanScroll(true)}
-                    initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
-                    <div className="loading-txt-container">
-                        <h1 className="loading-txt">98%</h1>
-                    </div>
-                </motion.div>
-
+                <Loader setCanScroll={setCanScroll} />
                 <motion.div variants={stagger} className="gallery-wrapper">
                     {
                         galleryItems.map((item, index) => (
