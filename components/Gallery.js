@@ -65,12 +65,13 @@ export default function Gallery({ setCanScroll }) {
     return !galleryItems ?
         <div className="loading-container">
             <div className="loading-txt-container">
-                <h1 className="loading-txt"><span className="">
-                    <span>J</span>
-                    <span>U</span>
-                    <span>A</span>
-                    <span>N</span>
-                </span>
+                <h1 className="loading-txt">
+                    <span className="">
+                        <span>J</span>
+                        <span>U</span>
+                        <span>A</span>
+                        <span>N</span>
+                    </span>
                     <span className="loader-lname">
                         <span>M</span>
                         <span>U</span>

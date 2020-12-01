@@ -6,6 +6,8 @@ export default function Loader({ setCanScroll }) {
 
     const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
 
+    const transition2 = {duration: 1.4, ease: [.6, .01, -.05, .9] };
+
     const fNameVariant = {
         initial: {
             y: 0,
@@ -13,7 +15,7 @@ export default function Loader({ setCanScroll }) {
         animate: {
             y: 0,
             transition: {
-                delayChildren: .6,
+                delayChildren: .17,
                 staggerChildren: .04,
                 staggerDirection: -1,
             }
@@ -27,23 +29,24 @@ export default function Loader({ setCanScroll }) {
         animate: {
             y: 0,
             transition: {
-                delayChildren: .6,
+                delayChildren: .17,
                 staggerChildren: .04,
                 staggerDirection: 1,
             }
         }
     }
 
-    const letterVariant = {
+    const letter = {
         initial: {
-            y: 400,
+            y: "0%",
         },
         animate: {
-            y: 0,
-            transition: { duration: 1, ...transition },
+            y: "-520%",
+            transition: { duration: 1, ...transition2 },
         }
     };
-     
+
+    // -120%
     const loadingVariant = {
         initial: {
             y: "0%",
@@ -59,21 +62,21 @@ export default function Loader({ setCanScroll }) {
             <motion.div
                 onAnimationComplete={() => setCanScroll(true)}
                 initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
-                <div className="loading-txt-container">
-                    <h1 className="loading-txt"><motion.span variants={fNameVariant} initial="initial" animate="animate" className="">
-                        <motion.span variants={letterVariant}>J</motion.span>
-                        <motion.span variants={letterVariant}>U</motion.span>
-                        <motion.span variants={letterVariant}>A</motion.span>
-                        <motion.span variants={letterVariant}>N</motion.span>
+                <motion.div className="name-title loading-txt loading-txt-container">
+                    <motion.span variants={fNameVariant} initial="initial" animate="animate">
+                        <motion.span className="ltr" variants={letter}>J</motion.span>
+                        <motion.span className="ltr" variants={letter}>U</motion.span>
+                        <motion.span className="ltr"  variants={letter}>A</motion.span>
+                        <motion.span className="ltr"  variants={letter}>N</motion.span>
                     </motion.span>
-                        <motion.span variants={lNameVariant} initial="initial" animate="animate" className="loader-lname">
-                            <motion.span variants={letterVariant}>M</motion.span>
-                            <motion.span variants={letterVariant}>U</motion.span>
-                            <motion.span variants={letterVariant}>N</motion.span>
-                            <motion.span variants={letterVariant}>O</motion.span>
-                            <motion.span variants={letterVariant}>Z</motion.span>
-                        </motion.span></h1>
-                </div>
+                    <motion.span variants={lNameVariant} initial="initial" animate="animate" className="loader-lname">
+                        <motion.span className="ltr"  variants={letter}>M</motion.span>
+                        <motion.span className="ltr"  variants={letter}>U</motion.span>
+                        <motion.span className="ltr"  variants={letter}>N</motion.span>
+                        <motion.span className="ltr"  variants={letter}>O</motion.span>
+                        <motion.span className="ltr"  variants={letter}>Z</motion.span>
+                    </motion.span>
+                </motion.div>
             </motion.div>
         </>
     )

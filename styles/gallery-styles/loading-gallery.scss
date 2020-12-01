@@ -13,7 +13,7 @@
 }
 
 .loading-txt {
-    font-size: 98px;
+    font-size: 56px;
     font-family: $font-main;
     color: $primary-clr;
     @include media(">tablet") { 
@@ -32,6 +32,17 @@
     transform: translateY(-50%);
     text-align: center;
 }
+
+.name-title {
+    span {
+            display: inline-block;
+            position: relative;
+    }
+    // .ltr {
+    //     border-bottom: 2px solid $complimentary-clr;
+    // }
+}
+
 .loader-lname {
     margin-left: 20px;
 
