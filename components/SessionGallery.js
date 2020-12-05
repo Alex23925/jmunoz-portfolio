@@ -9,20 +9,6 @@ const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
 const Loader = dynamic(() => import("./Loader"));
 
 export default function Gallery({ sessionName, setCanScroll }) {
-    let type = " ";
-    console.log(sessionName);
-    const transition = { delay: .2, duration: 1.8, ease: [.5, .01, -.05, .5] };
-    const loadingVariant = {
-        initial: {
-            y: "0%",
-        },
-        animate: {
-            y: "-120%",
-            transition: { ...transition },
-        },
-    }
-
-    // if title equals galleries title then show pics from session 
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -31,8 +17,6 @@ export default function Gallery({ sessionName, setCanScroll }) {
     const [galleryItems, setGalleryItemsData] = useState(null);
 
     const [sessionPics, setSessionPicsData] = useState(null);
-
-    console.log(galleryItems);
 
     const [hidden, setHidden] = useState(" ");
 

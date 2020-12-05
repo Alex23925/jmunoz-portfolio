@@ -10,8 +10,7 @@ const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 
 export default function Session() {
     const router = useRouter();
-    const routerSession = router.query.session;
-    console.log(router.query.session);
+    const routerSession = router.query.category;
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';

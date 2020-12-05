@@ -42,7 +42,6 @@ export default function Gallery({ setCanScroll }) {
     const [hidden, setHidden] = useState(" ");
 
     const imgRef = useRef();
-    console.log(imgRef.current);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -81,7 +80,7 @@ export default function Gallery({ setCanScroll }) {
                                 img={item.data.gallery_image.url}
                                 title={item.data.gallery_item_title[0].text}
                                 category={item.data.category[0].text}
-                                photoshootLink={item.data.gallery_item_title[0].text} />
+                                photoshootLink={item.data.gallery_item_pics_name} />
                         ))
                     }
                 </motion.div>
