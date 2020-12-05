@@ -4,7 +4,7 @@ import "../styles/gallery-styles/loading-gallery.scss";
 
 export default function Loader({ setCanScroll }) {
 
-    const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
+    const transition = { delay: .25, duration: .9, ease: [1, 1, 0, 0] };
 
     const transition2 = { duration: 1.4, ease: [.6, .01, -.05, .9] };
 
@@ -53,7 +53,7 @@ export default function Loader({ setCanScroll }) {
             y: "0%",
         },
         animate: {
-            y: "-120%",
+            y: "-100%",
             transition: { ...transition },
         },
         exit: {
