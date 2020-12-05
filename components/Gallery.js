@@ -66,19 +66,7 @@ export default function Gallery({ setCanScroll }) {
         <div className="loading-container">
             <div className="loading-txt-container">
                 <h1 className="loading-txt">
-                    <span className="">
-                        <span>J</span>
-                        <span>U</span>
-                        <span>A</span>
-                        <span>N</span>
-                    </span>
-                    <span className="loader-lname">
-                        <span>M</span>
-                        <span>U</span>
-                        <span>N</span>
-                        <span>O</span>
-                        <span>Z</span>
-                    </span>
+                    JUAN MUNOZ
                 </h1>
             </div>
         </div> :
