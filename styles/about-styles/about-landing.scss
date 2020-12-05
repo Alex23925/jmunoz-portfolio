@@ -203,7 +203,7 @@ $transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bez
 .coder-img {
     transition: $transition;
     @include media("<tablet") {
-        width: 100px;
+        width: 65px;
         height: auto;
         transform: translate3d(0,0,0);
         margin-bottom: 24px;
