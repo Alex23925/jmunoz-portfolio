@@ -11,7 +11,7 @@ const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
 export default function Gallery({sessionName}) {
     let type = " ";
     console.log(sessionName);
-    const transition = {delay: .5, duration: 1.8, ease: [.5, .01, -.05, .5] };
+    const transition = {delay: .2, duration: 1.8, ease: [.5, .01, -.05, .5] };
     const loadingVariant = {
         initial: {
             y: "0%",
@@ -19,7 +19,7 @@ export default function Gallery({sessionName}) {
         animate: {
             y: "-120%",
             transition: {  ...transition },
-        }
+        },
     }
 
     // if title equals galleries title then show pics from session 
@@ -56,14 +56,14 @@ export default function Gallery({sessionName}) {
     return !galleryItems ?
         <div className="loading-container">
             <div className="loading-txt-container">
-                <h1 className="loading-txt">98%</h1>
+                <h1 className="loading-txt">JUAN MUNOZ</h1>
             </div>
         </div> :
         (
             <>
-                <motion.div initial="initial" animate="animate" variants={loadingVariant} className="loading-container loading-container-copy">
+                <motion.div initial="initial" animate="animate" exit="initial6" variants={loadingVariant} className="loading-container loading-container-copy">
                     <div className="loading-txt-container">
-                        <h1 className="loading-txt">98%</h1>
+                        <h1 className="loading-txt">JUAN MUNOZ</h1>
                     </div>
                 </motion.div>
 

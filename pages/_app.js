@@ -3,13 +3,13 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter, Router } from 'next/router'
 import dynamic from 'next/dynamic';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
 
   Router.events.on("routerChangeStart", () => setLoading(true));
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <Component {...pageProps} />
+      <Component {...pageProps} key={router.route} />
     </AnimatePresence>
   )
 

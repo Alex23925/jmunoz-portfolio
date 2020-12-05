@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import '../styles/home.scss';
+import { motion, AnimatePresence } from "framer-motion";
+
 import { useState, useRef, useEffect } from "react";
 
 const Meta = dynamic(() => import("../components/Meta"));
@@ -21,13 +23,14 @@ export default function Home() {
     }
   }, [canScroll])
 
-
   return (
-    <div ref={pageWrapperRef} className={`page-wrapper lock`} >
-      <Meta />
-      {/* <Loader /> */}
-      <Header />
-      <Gallery setCanScroll={setCanScroll} />
-    </div>
+    <>
+      <div ref={pageWrapperRef} className={`page-wrapper lock`} >
+        <Meta />
+        {/* <Loader /> */}
+        <Header />
+        <Gallery setCanScroll={setCanScroll} />
+      </div>
+    </>
   )
 }
