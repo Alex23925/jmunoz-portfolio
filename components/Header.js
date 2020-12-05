@@ -43,12 +43,33 @@ const letter = {
     }
 };
 
+const nameVariant = {
+    initial: {
+        y: 40,
+    },
+    animate: {
+        y: 0,
+        transition: { duration: 1, ...transition },
+    }
+}
+
+const btnVariant = {
+    initial: {
+        y: 40,
+    },
+    animate: {
+        y: 0,
+        transition: { duration: 1, ...transition },
+    }
+
+}
+
 export default function Header(props) {
-    
+
 
     return (
         <motion.div initial="initial" animate="animate" exit="exit" className="header header-styles">
-            <motion.div className="name-title">
+            <motion.div initial="initial" animate="animate" variants={nameVariant} className="name-title">
                 <motion.span variants={fNameVariant} initial="initial" animate="animate" className="first-name first-name--styles">
                     <motion.span variants={letter}>J</motion.span>
                     <motion.span variants={letter}>U</motion.span>
@@ -65,9 +86,9 @@ export default function Header(props) {
             </motion.div>
             <nav className="main-nav main-nav--styles">
                 <Link href="/about">
-                    <a className="link link--styles">about</a>
+                    <motion.a initial="initial" animate="animate" variants={btnVariant} className="link link--styles">about</motion.a>
                 </Link>
-                
+
             </nav>
         </motion.div>
     )
