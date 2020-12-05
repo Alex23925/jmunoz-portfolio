@@ -2,6 +2,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../styles/header.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
+function template({y}) {
+    return `translateY(${y}%)`
+}
+
 export default function Loader({ setCanScroll }) {
 
     const transition = { delay: .25, duration: .9, ease: [1, 1, 0, 0] };
@@ -53,7 +57,7 @@ export default function Loader({ setCanScroll }) {
             y: "0%",
         },
         animate: {
-            y: "-100%",
+            y: "-120%",
             transition: { ...transition },
         },
         exit: {
@@ -67,7 +71,7 @@ export default function Loader({ setCanScroll }) {
         <>
             <motion.div
                 onAnimationComplete={() => setCanScroll(true)}
-                initial="initial" animate="animate" exit="exit" variants={loadingVariant} className="loading-container loading-container-copy">
+                initial="initial" animate="animate" exit="exit" variants={loadingVariant} className="loading-container">
                 <motion.div className="name-title loading-txt loading-txt-container">
                     JUAN MUNOZ
                 </motion.div>

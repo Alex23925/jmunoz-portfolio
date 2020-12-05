@@ -2,15 +2,22 @@
 @import "../colors.scss";
 @import "../fonts.scss";
 
+:root {
+    --yValue: 0;
+}
+
 //pre load
 .loading-container {
     position: absolute;
+    transform: translate3d(0, 120%, 0);
+    display: inline-block;
     width: 100vw;
     height: 100vh;
     background-color: $bg-dark;
     z-index: 10;
     top: 0;
 }
+
 
 .loading-txt {
     font-size: 56px;
