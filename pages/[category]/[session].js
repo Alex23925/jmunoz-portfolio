@@ -19,11 +19,25 @@ export default function Session() {
     const Client = Prismic.client(apiEndpoint, { accessToken });
     const [galleryItems, setGalleryItemsData] = useState(null);
 
+
+    const [canScroll, setCanScroll] = useState(false);
+
+    const pageWrapperRef = useRef();
+
+    useEffect(() => {
+        if (canScroll === false) {
+            document.querySelector("body").classList.add("no-scroll");
+        } else {
+            document.querySelector("body").classList.remove("no-scroll");
+        }
+    }, [canScroll])
+
+
     return (
         <div className={`page-wrapper`} >
             <>
                 <Header />
-                <SessionGallery sessionName={routerSession} />
+                <SessionGallery sessionName={routerSession} setCanScroll={setCanScroll} />
             </> 
         </div>
     )

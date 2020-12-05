@@ -6,19 +6,19 @@ import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
+const Loader = dynamic(() => import("./Loader"));
 
-
-export default function Gallery({sessionName}) {
+export default function Gallery({ sessionName, setCanScroll }) {
     let type = " ";
     console.log(sessionName);
-    const transition = {delay: .2, duration: 1.8, ease: [.5, .01, -.05, .5] };
+    const transition = { delay: .2, duration: 1.8, ease: [.5, .01, -.05, .5] };
     const loadingVariant = {
         initial: {
             y: "0%",
         },
         animate: {
             y: "-120%",
-            transition: {  ...transition },
+            transition: { ...transition },
         },
     }
 
@@ -61,20 +61,16 @@ export default function Gallery({sessionName}) {
         </div> :
         (
             <>
-                <motion.div initial="initial" animate="animate" exit="initial6" variants={loadingVariant} className="loading-container loading-container-copy">
-                    <div className="loading-txt-container">
-                        <h1 className="loading-txt">JUAN MUNOZ</h1>
-                    </div>
-                </motion.div>
+                <Loader setCanScroll={setCanScroll} />
 
                 <div className="gallery-wrapper">
                     {
-                        
+
                         galleryItems.map((item, index) => (
                             <GalleryItem
                                 img={item.data.shoot_image.url}
                                 title={item.data.shoot_title[0].text}
-                                 />
+                            />
                         ))
                     }
                 </div>
