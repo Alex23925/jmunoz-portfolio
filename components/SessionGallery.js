@@ -6,6 +6,7 @@ import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
+const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
 export default function Gallery({ sessionName, setCanScroll }) {
@@ -58,6 +59,8 @@ export default function Gallery({ sessionName, setCanScroll }) {
                         ))
                     }
                 </div>
+                
+                <BtmGallery galleryItems={galleryItems} />
             </>
         )
 }

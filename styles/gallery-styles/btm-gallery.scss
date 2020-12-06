@@ -1,0 +1,69 @@
+@import "../breakpoints.scss";
+@import "../colors.scss";
+@import "../fonts.scss";
+
+:root {
+    --animationSpeed: 0s,
+}
+
+.btm-gallery-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    margin-top: 12vw;
+    padding: 4vw;
+    overflow: hidden;
+    //border: 2px solid red;
+
+    @include media(">=tablet"){
+        height: 32vh;
+    }
+    @include media(">=desktop"){
+        
+    }
+}
+
+.btm-gallery-row { 
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    display: inline;
+    width: 650%;
+    display: flex;
+    justify-content: flex-start;
+    //animation:  slideshowTransform 15s linear infinite;
+    @include media(">=tablet"){
+        width: 250%;
+    }
+    @include media(">=desktop"){
+        
+    }
+}
+
+.row1 {
+  //border: 2px solid yellow;
+  transform: translateX(35%);
+  animation: slideshowTransform 15s linear infinite;
+}
+
+.row2 {
+  border: 2px solid blue;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  animation: slideshowTransform 15s linear infinite;
+}
+
+.btm-gallery-pic {
+    width: 300px;
+    height: auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+@keyframes slideshowTransform {
+    0% {
+        transform: translateX(35%);  
+    }
+    100% { 
+    transform: translateX(-105%);  
+  }
+}
