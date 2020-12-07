@@ -10,7 +10,6 @@ export default function SideVizImageAware({ img, index, classN, visiblePic, setV
     let vwVar;
     let op;
 
-    vwVar = index === visiblePic ? vwVar = "2vw" : vwVar = "0vw";
     const [focusedPic, setFocusedPic] = useState("unfocused");
     
     if (scrollY === 0) {

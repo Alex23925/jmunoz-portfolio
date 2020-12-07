@@ -16,7 +16,6 @@ export default function Session() {
     const [canScroll, setCanScroll] = useState(false);
 
     const scrollY = useScrollPosition(60);
-    console.log(scrollY);
 
     useEffect(() => {
     

@@ -4,12 +4,14 @@ import {useState} from "react"
 export default function VizImageAware({ img, index, classN, setVisiblePic, setIsPicVisible}) {
     const [imgViz, setImgViz] = useState(false);
 
+    if(imgViz) {
+        setVisiblePic(index);
+    }
     return (
         <>
             <VizSensor
                 onChange={(isVisible) => {
                     setImgViz(isVisible);
-                    setVisiblePic(index);
                     setIsPicVisible(true);
                 }}
             >
