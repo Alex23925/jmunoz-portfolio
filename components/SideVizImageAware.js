@@ -21,9 +21,9 @@ export default function SideVizImageAware({ img, index, classN, visiblePic, setV
                     id={`pic-${index} pic-${index}--styles`}
                     className={`${focusedPic} ${classN} pic-${index} pic-${index}--styles`}
                     style={{
-                        opacity: index === visiblePic ? vwVar = "-2vw" : vwVar = "0vw",
+                        opacity: index === visiblePic ? 1 : 0.25,
                         transform: `translate3d(${vwVar}, 0, 0)`,
-                        transition: 'transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955)'
+                        transition: 'opacity transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955)'
                     }}
                 />
             </VizSensor>

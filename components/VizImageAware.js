@@ -17,6 +17,10 @@ export default function VizImageAware({ img, index, classN, setVisiblePic, setIs
                     src={img}
                     id={`pic-${index} pic-${index}--styles`}
                     className={classN}
+                    // style={{
+                    //     opacity: imgViz ? 1 : 0.25,
+                    //     transition: 'opacity 500ms linear'
+                    // }}
                 />
             </VizSensor> 
         </>
