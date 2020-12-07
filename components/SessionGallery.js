@@ -13,7 +13,7 @@ const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
-export default function Gallery({ sessionName, setCanScroll }) {
+export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY }) {
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -28,7 +28,10 @@ export default function Gallery({ sessionName, setCanScroll }) {
 
     const [focusedPic, setFocusedPic] = useState(" ");
 
+    const [isMounted, setIsMounted] = useState(false);
+
     useEffect(() => {
+        setIsMounted(true);
         const fetchData = async () => {
             const response = await Client.query(
                 Prismic.Predicates.at('document.type', sessionName)
@@ -56,6 +59,8 @@ export default function Gallery({ sessionName, setCanScroll }) {
                             galleryItems.map((item, index) => (
 
                                 <SideVizImageAware
+                                    scrollY={scrollY}
+                                    canScroll={canScroll}
                                     visiblePic={visiblePic}
                                     setVisiblePicSide={setVisiblePicSide}
                                     setIsPicVisibleSide={setIsPicVisibleSide}
@@ -65,6 +70,9 @@ export default function Gallery({ sessionName, setCanScroll }) {
 
                             ))
                         }
+                        <div className="helpful-txt-container">
+
+                        </div>
                     </section>
                 </div>
                 <div className="gallery-wrapper">

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import { useAnimation, motion } from "framer-motion";
+import useScrollPosition from '@react-hook/window-scroll';
 import dynamic from "next/dynamic";
 import Prismic from "prismic-javascript";
 import '../../styles/home.scss';
@@ -14,7 +15,11 @@ export default function Session() {
 
     const [canScroll, setCanScroll] = useState(false);
 
+    const scrollY = useScrollPosition(60);
+    console.log(scrollY);
+
     useEffect(() => {
+    
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {
@@ -27,7 +32,7 @@ export default function Session() {
         <div className={`page-wrapper`} >
             <>
                 <Header />
-                <SessionGallery sessionName={routerSession} setCanScroll={setCanScroll} />
+                <SessionGallery scrollY={scrollY} sessionName={routerSession} setCanScroll={setCanScroll} canScroll={canScroll} />
             </> 
         </div>
     )
