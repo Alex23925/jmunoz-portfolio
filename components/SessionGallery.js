@@ -19,12 +19,8 @@ export default function Gallery({ sessionName, setCanScroll }) {
     const Client = Prismic.client(apiEndpoint, { accessToken });
     const [galleryItems, setGalleryItemsData] = useState(null);
 
-    const [visiblePic, setVisiblePic] = useState(null);
+    const [visiblePic, setVisiblePic] = useState(0);
     const [isPicVisible, setIsPicVisible] = useState(false);
-
-    console.log("Big Pic:");
-    console.log(visiblePic);
-    console.log(isPicVisible);
 
     const [visiblePicSide, setVisiblePicSide] = useState(null);
     const [isPicVisibleSide, setIsPicVisibleSide] = useState(false);
@@ -34,7 +30,7 @@ export default function Gallery({ sessionName, setCanScroll }) {
     useEffect(() => {
         const fetchData = async () => {
             const response = await Client.query(
-                Prismic.Predicates.at('document.type', sessionName.toLowerCase())
+                Prismic.Predicates.at('document.type', sessionName)
             )
             if (response) {
                 setGalleryItemsData(response.results)
