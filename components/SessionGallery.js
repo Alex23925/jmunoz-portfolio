@@ -6,6 +6,8 @@ import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
+const VizImageAware = dynamic(() => import("./VizImageAware"));
+const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
@@ -13,13 +15,11 @@ export default function Gallery({ sessionName, setCanScroll }) {
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
-
     const Client = Prismic.client(apiEndpoint, { accessToken });
     const [galleryItems, setGalleryItemsData] = useState(null);
 
-    const [sessionPics, setSessionPicsData] = useState(null);
-
-    const [hidden, setHidden] = useState(" ");
+    const [visiblePic, setVisiblePic] = useState(null);
+    const [isPicVisible, setIsPicVisible] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,11 +31,6 @@ export default function Gallery({ sessionName, setCanScroll }) {
             }
         }
         fetchData()
-
-        const interval = setInterval(() => {
-            setHidden("overflow-hid");
-        }, 1600);
-        return () => clearInterval(interval);
     }, [])
 
     return !galleryItems ?
@@ -47,19 +42,33 @@ export default function Gallery({ sessionName, setCanScroll }) {
         (
             <>
                 <Loader setCanScroll={setCanScroll} />
+                <section className="gallery-side-scroll">
+                    {
+
+                        galleryItems.map((item, index) => (
+                            <span>
+                                <VizImageAware 
+                                classN={"gallery-side-pic"}
+                                img={item.data.shoot_image.url} 
+                                index={index} />
+                            </span>
+                        ))
+                    }
+                </section>
 
                 <div className="gallery-wrapper">
                     {
 
                         galleryItems.map((item, index) => (
-                            <GalleryItem
+                            <AwareGalleryItem
                                 img={item.data.shoot_image.url}
-                                title={item.data.shoot_title[0].text}
+                                index={index}
                             />
+                            
                         ))
                     }
                 </div>
-                
+
                 <BtmGallery galleryItems={galleryItems} />
             </>
         )

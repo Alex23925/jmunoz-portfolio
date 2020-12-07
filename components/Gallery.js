@@ -11,16 +11,6 @@ const Loader = dynamic(() => import("./Loader"));
 export default function Gallery({ setCanScroll }) {
     const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
 
-    const loadingVariant = {
-        initial: {
-            y: "0%",
-        },
-        animate: {
-            y: "-120%",
-            transition: { ...transition },
-        }
-    }
-
     const stagger = {
         animate: {
             transition: {

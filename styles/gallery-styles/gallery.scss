@@ -8,6 +8,7 @@
 }
 
 .gallery-wrapper {
+    position: relative;
     height: auto;
     margin: 32px 32px 0px 32px;
     //order: 2px solid purple;
@@ -23,6 +24,37 @@
     @include media(">=LGdesktop") { 
         margin: 256px 32px 0px 32px;
     }
+}
+
+.gallery-side-scroll {
+    position: absolute;
+    display: none;
+    transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+    top: 12vw;
+    right: 8vw;
+    //border: 2px solid yellow;
+
+    @include media(">=tablet"){
+        display: grid;
+    }
+    @include media(">=desktop"){
+        
+    }
+}
+
+.gallery-side-pic {
+    height: auto;
+    @include media(">=tablet"){
+        padding-bottom: 1vw;
+        width: 150px;
+    }   
+    @include media(">=desktop"){
+        
+    }
+}
+
+.transparent {
+    opacity: .5;
 }
 
 .overflow-hid {

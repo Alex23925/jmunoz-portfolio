@@ -12,16 +12,7 @@ export default function Session() {
     const router = useRouter();
     const routerSession = router.query.category;
 
-    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
-    const accessToken = '';
-
-    const Client = Prismic.client(apiEndpoint, { accessToken });
-    const [galleryItems, setGalleryItemsData] = useState(null);
-
-
     const [canScroll, setCanScroll] = useState(false);
-
-    const pageWrapperRef = useRef();
 
     useEffect(() => {
         if (canScroll === false) {
