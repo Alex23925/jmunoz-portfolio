@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import Prismic from "prismic-javascript";
@@ -48,11 +49,12 @@ export default function Gallery({ sessionName, setCanScroll }) {
         (
             <>
                 <Loader setCanScroll={setCanScroll} />
-                <section className="gallery-side-scroll">
-                    {
+                <div className="side-scroll-container">
+                    <section className="gallery-side-scroll">
+                        {
 
-                        galleryItems.map((item, index) => (
-                            <motion.span className={`gallery-side-span-${index}`}>
+                            galleryItems.map((item, index) => (
+
                                 <SideVizImageAware
                                     visiblePic={visiblePic}
                                     setVisiblePicSide={setVisiblePicSide}
@@ -60,11 +62,11 @@ export default function Gallery({ sessionName, setCanScroll }) {
                                     classN={"gallery-side-pic"}
                                     img={item.data.shoot_image.url}
                                     index={index} />
-                            </motion.span>
-                        ))
-                    }
-                </section>
 
+                            ))
+                        }
+                    </section>
+                </div>
                 <div className="gallery-wrapper">
                     {
 

@@ -15,7 +15,7 @@ export default function VizImageAware({ img, index, classN, setVisiblePic, setIs
             >
                 <img
                     src={img}
-                    id={`pic-${index} pic-${index}--styles`}
+                    id={`main-pic-${index}`}
                     className={classN}
                     // style={{
                     //     opacity: imgViz ? 1 : 0.25,
