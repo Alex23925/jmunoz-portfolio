@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function SideVizImageAware({ img, index, classN, visiblePic, setVisiblePicSide, setIsPicVisibleSide }) {
     const [imgViz, setImgViz] = useState(false);
-    let vwVar = "0vw";
+    let vwVar = index === visiblePic ? vwVar = "-2vw" : vwVar = "0vw";
     const [focusedPic, setFocusedPic] = useState("unfocused");
     console.log(focusedPic);
 
