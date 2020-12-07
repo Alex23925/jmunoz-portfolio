@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const VizImageAware = dynamic(() => import("./VizImageAware"));
 
-export default function AwareGalleryItem({index, img}) {
+export default function AwareGalleryItem({ img, index, setVisiblePic, setIsPicVisible }) {
 
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let x;
@@ -39,13 +39,15 @@ export default function AwareGalleryItem({index, img}) {
             <div
                 className="gallery-item-content">
                 <div>
-                        <a className="img-link">     
-                            <VizImageAware
+                    <a className="img-link">
+                        <VizImageAware
                             classN={"animated-intro-img"}
-                                img={img}
-                                index={index}
-                             />
-                        </a>
+                            setVisiblePic={setVisiblePic}
+                            setIsPicVisible={setIsPicVisible}
+                            img={img}
+                            index={index}
+                        />
+                    </a>
                 </div>
             </div>
         </div>

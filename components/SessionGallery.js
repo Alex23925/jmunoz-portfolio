@@ -1,11 +1,12 @@
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { useAnimation, motion } from "framer-motion";
 import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
 const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
+const SideVizImageAware = dynamic(() => import("./SideVizImageAware"));
 const VizImageAware = dynamic(() => import("./VizImageAware"));
 const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
@@ -19,7 +20,16 @@ export default function Gallery({ sessionName, setCanScroll }) {
     const [galleryItems, setGalleryItemsData] = useState(null);
 
     const [visiblePic, setVisiblePic] = useState(null);
-    const [isPicVisible, setIsPicVisible] = useState(null);
+    const [isPicVisible, setIsPicVisible] = useState(false);
+
+    console.log("Big Pic:");
+    console.log(visiblePic);
+    console.log(isPicVisible);
+
+    const [visiblePicSide, setVisiblePicSide] = useState(null);
+    const [isPicVisibleSide, setIsPicVisibleSide] = useState(false);
+
+    const [focusedPic, setFocusedPic] = useState(" ");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,12 +56,15 @@ export default function Gallery({ sessionName, setCanScroll }) {
                     {
 
                         galleryItems.map((item, index) => (
-                            <span>
-                                <VizImageAware 
-                                classN={"gallery-side-pic"}
-                                img={item.data.shoot_image.url} 
-                                index={index} />
-                            </span>
+                            <motion.span className={`gallery-side-span-${index}`}>
+                                <SideVizImageAware
+                                    visiblePic={visiblePic}
+                                    setVisiblePicSide={setVisiblePicSide}
+                                    setIsPicVisibleSide={setIsPicVisibleSide}
+                                    classN={"gallery-side-pic"}
+                                    img={item.data.shoot_image.url}
+                                    index={index} />
+                            </motion.span>
                         ))
                     }
                 </section>
@@ -61,10 +74,12 @@ export default function Gallery({ sessionName, setCanScroll }) {
 
                         galleryItems.map((item, index) => (
                             <AwareGalleryItem
+                                setVisiblePic={setVisiblePic}
+                                setIsPicVisible={setIsPicVisible}
                                 img={item.data.shoot_image.url}
                                 index={index}
                             />
-                            
+
                         ))
                     }
                 </div>
