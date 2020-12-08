@@ -6,9 +6,7 @@ import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
-const GalleryItem = dynamic(() => import("./SessionGalleryItem"));
 const SideVizImageAware = dynamic(() => import("./SideVizImageAware"));
-const VizImageAware = dynamic(() => import("./VizImageAware"));
 const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
@@ -71,7 +69,14 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                             ))
                         }
                         <div className="helpful-txt-container">
-
+                            <div className="verticle-bar"></div>
+                            <h2 className="helpful-txt helpful-txt--styles">
+                                <span>C</span>
+                                <span>l</span>
+                                <span>i</span>
+                                <span>c</span>
+                                <span>k</span>
+                            </h2>
                         </div>
                     </section>
                 </div>
@@ -89,7 +94,13 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                         ))
                     }
                 </div>
-
+                
+                <div className="btm-helpful-txt-container">
+                    <div className="btm-vertical-bar"></div>
+                    <h2 className="btm-helpful-txt helpful-txt--styles">
+                        Explore More
+                    </h2>
+                </div>
                 <BtmGallery galleryItems={galleryItems} />
             </>
         )

@@ -8,25 +8,100 @@
 
 .btm-gallery-wrapper {
     position: relative;
-    margin-top: 12vw;
+    margin-top: 24vw;
     padding: 4vw;
     overflow: hidden;
-    border: 2px solid red;
-
     @include media(">=tablet"){
-        
+        margin-top: 48vw;
     }
     @include media(">=desktop"){
+        margin-top: 38vw;
+    }
+    @include media(">=LGdesktop"){
+        margin-top: 38vw;
+    }
+}
+
+.gallery-title--styles {
+    text-align: center;
+    font-weight: 200;
+    font-family: $font-main;
+    color: $complimentary-clr;
+    margin-top: -16px;
+    font-size: 32px;
+    @include media(">=tablet"){
+        margin-top: -32px;
+        font-size: 64px;
+    }
+    @include media(">=desktop"){
+        margin-top: -48px;
+        font-size: 64px;
+    }
+    @include media(">=LGdesktop"){
+        margin-top: -96px;
+        font-size: 96px;
+    }
+}
+
+.btm-helpful-txt-container {
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.btm-helpful-txt {
+    position: absolute;
+    font-size: 18px;
+    text-align: center;
+    width: 200px;
+    background-color: $bg-dark;
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+   
+    @include media(">=tablet"){
+        width: 250px;
+        padding: 2vw;
+        margin-top: 150px;
+        font-size: 32px;
+    }
+    @include media(">=desktop"){
+        width: 200px;
         
+    }
+    @include media(">=LGdesktop"){
+        width: 200px;
+    }
+}
+
+.btm-vertical-bar {
+    position: absolute;
+    width: 1px;
+    right: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: $complimentary-clr;
+    @include media(">=tablet"){
+        width: 1px;
+        height: 600px;
+        margin-bottom: 1.5vw;
+    }   
+    @include media(">=desktop"){
+        height: 650px;
+        
+    }
+    @include media(">=LGdesktop"){
+        height: 950px;
     }
 }
 
 .btm-gallery-row { 
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(30vw, 0, 0);
     display: flex;
-    
-
-    border: 2px solid blue;
     @include media(">=tablet"){
 
     }

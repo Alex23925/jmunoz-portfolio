@@ -7,6 +7,7 @@ export default function VizImageAware({ img, index, classN, setVisiblePic, setIs
     if(imgViz) {
         setVisiblePic(index);
     }
+    
     return (
         <>
             <VizSensor
