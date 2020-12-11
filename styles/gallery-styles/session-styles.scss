@@ -1,0 +1,120 @@
+@import "../breakpoints.scss";
+@import "../colors.scss";
+@import "../fonts.scss";
+
+.dnone {
+    display: none;
+}
+
+.side-scroll-container {
+    position: fixed;
+    margin-top: 8vh;
+}
+
+.gallery-side-scroll {
+    display: none;
+    transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+
+    //border: 2px solid yellow;
+
+    @include media(">=tablet"){
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+    @include media(">=desktop"){
+        
+    }
+}
+
+.side-bar-a {
+    display: inline-block;
+}
+
+.focused {
+    opacity: 1;
+    transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+    transform: translate3d(-4vw,0,0);
+}
+
+.unfocused {
+    opacity: .25;
+    transition: transform .5s cubic-bezier(.455,.03,.515,.955),height .5s cubic-bezier(.455,.03,.515,.955),-webkit-transform .5s cubic-bezier(.455,.03,.515,.955);
+    transform: translate3d(0vw,0,0);
+}
+
+.gallery-side-pic {
+    cursor: pointer;
+    height: auto;
+    @include media(">=tablet"){
+        padding-bottom: 1vw;
+        width: 40px;
+    }   
+    @include media(">=desktop"){
+        
+    }
+}
+
+.transparent {
+    opacity: .5;
+}
+
+.overflow-hid {
+    overflow: hidden;
+}
+
+.helpful-txt-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verticle-bar {
+    background-color: $complimentary-clr;
+    @include media(">=tablet"){
+        width: 2px;
+        height: 50px;
+        margin-bottom: 1.5vw;
+    }   
+    @include media(">=desktop"){
+        margin-bottom: 1vw;
+    }
+}
+
+.btm-vertical-bar {
+    position: absolute;
+    right: 0;
+    left: 0%;
+    width: 2px;
+    height: 150px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: $complimentary-clr;
+    @include media(">=tablet"){
+        width: 2px;
+        height: 50px;
+        margin-bottom: 1.5vw;
+    }   
+    @include media(">=desktop"){
+        margin-bottom: 1vw;
+    }
+}
+
+.helpful-txt {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.helpful-txt--styles {
+    font-family: $font-sub;
+    color: $complimentary-clr;
+    
+    @include media(">=tablet"){
+        font-size: 20px;
+    }   
+    @include media(">=desktop"){
+        
+    }
+
+}

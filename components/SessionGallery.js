@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import Prismic from "prismic-javascript";
 import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
+import "../styles/gallery-styles/session-styles.scss";
 
 const SideVizImageAware = dynamic(() => import("./SideVizImageAware"));
 const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
