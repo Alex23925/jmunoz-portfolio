@@ -8,6 +8,7 @@
 
 .btm-gallery-wrapper {
     position: relative;
+    width: auto;
     margin-top: 24vw;
     padding: 4vw;
     overflow: hidden;
@@ -100,8 +101,13 @@
 }
 
 .btm-gallery-row { 
-    transform: translate3d(30vw, 0, 0);
+    //transform: translate3d(30vw, 0, 0);
+    //border: 2px solid red;
     display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
     @include media(">=tablet"){
 
     }
@@ -110,11 +116,22 @@
     }
 }
 
+.btm-gallery-row::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    border-radius: 25px;
+    background-color: lighten($color: $bg-dark, $amount: 10); /* or add it to the track */
+}
+
+.btm-gallery-row::-webkit-scrollbar-thumb {
+    background-color: $secondary-clr;
+}
+
 .btm-gallery-pic {
     width: 300px;
     height: auto;
     padding-right: 2vw;
-
+    display: inline-block;
     @include media(">=tablet"){
 
     }
@@ -131,3 +148,12 @@
     transform: translateX(-105%);  
   }
 }
+
+
+
+
+
+
+
+
+
