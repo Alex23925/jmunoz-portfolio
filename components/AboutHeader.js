@@ -5,6 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function AboutHeader() {
+    const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
+    const btnVariant = {
+    initial: {
+        opacity: 0,
+        y: 40,
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1, ...transition },
+    }
+
+}
+
+
     const arrow = <FontAwesomeIcon icon={faArrowLeft} />
 
     const onHoverStart = useAnimation();
@@ -13,7 +28,7 @@ export default function AboutHeader() {
 
     return (
         <> 
-            <section className="header about-header">
+            <motion.section initial="initial" animate="animate" variants={btnVariant} className="header about-header">
                 <div className="go-back-container go-back-container--stlyles">
                     <Link href="/">
                         <a className="go-back go-back--styles">
@@ -28,7 +43,7 @@ export default function AboutHeader() {
                     </Link>
                     </h1>
                 </div>
-            </section>
+            </motion.section>
         </>
     )
 }

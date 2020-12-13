@@ -15,6 +15,17 @@ const Loader = dynamic(() => import("./Loader"));
 export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}) {
     const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
     
+    const btmVariant = {
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity: 1,
+        transition: { duration: 1, ...transition },
+    }
+
+}
+
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
     const Client = Prismic.client(apiEndpoint, { accessToken });
@@ -98,23 +109,13 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
                     }
                 </div>
 
-                <div className="btm-helpful-txt-container">
+                <motion.div initial="initial" animate="animate" variants={btmVariant} className="btm-helpful-txt-container">
                     <div className="btm-vertical-bar"></div>
                     <h2 className="btm-helpful-txt helpful-txt--styles">
                         Explore More
                     </h2>
-                </div>
+                </motion.div>
                 <BtmGallery galleryItems={galleryItems} />
             </>
         )
-}
-
-export async function getInitialProps(context) {
-    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
-    const res = await fetch(apiEndpoint)
-    const data = await res.json()
-
-    return {
-        data: data // will be passed to the page component as props
-    }
 }

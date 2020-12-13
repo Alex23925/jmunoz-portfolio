@@ -2,9 +2,22 @@ import "../styles/gallery-styles/btm-gallery.scss";
 import { motion } from "framer-motion";
 
 export default function BtmGallery({ galleryItems }) {
+    const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
+
+    const galleryVariant = {
+    initial: {
+        y: 40,
+    },
+    animate: {
+        y: 0,
+        transition: { duration: 1, ...transition },
+    }
+
+}
+
     return (
         <>
-            <div className="btm-gallery-wrapper">
+            <motion.div className="btm-gallery-wrapper">
                 <h1 className="gallery-title gallery-title--styles">
                     Gallery
                 </h1>
@@ -20,7 +33,7 @@ export default function BtmGallery({ galleryItems }) {
                     }
                 </motion.div>
 
-            </div>
+            </motion.div>
         </>
     )
 }

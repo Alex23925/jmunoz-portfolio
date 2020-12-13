@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { useAnimation, motion } from "framer-motion";
 
 const VizImageAware = dynamic(() => import("./VizImageAware"));
 
@@ -35,7 +36,7 @@ export default function AwareGalleryItem({ img, index, setVisiblePic, setIsPicVi
 
 
     return (
-        <div initial="initial" animate="animate" variants={fadeInUp} className="gallery-wrapper-item">
+        <motion.div initial="initial" animate="animate" variants={fadeInUp} className="gallery-wrapper-item">
             <div
                 className="gallery-item-content">
                 <div>
@@ -50,6 +51,6 @@ export default function AwareGalleryItem({ img, index, setVisiblePic, setIsPicVi
                     </a>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
