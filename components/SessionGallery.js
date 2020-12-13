@@ -82,7 +82,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
 
                             ))
                         }
-                        <div className="helpful-txt-container">
+                        <motion.div initial="initial" animate="animate" variants={btmVariant}  className="helpful-txt-container">
                             <div className="verticle-bar"></div>
                             <h2 className="helpful-txt helpful-txt--styles">
                                 <span>C</span>
@@ -91,7 +91,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
                                 <span>c</span>
                                 <span>k</span>
                             </h2>
-                        </div>
+                        </motion.div>
                     </section>
                 </div>
                 <div className="gallery-wrapper">
