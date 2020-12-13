@@ -12,7 +12,7 @@ const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
-export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY }) {
+export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}) {
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -26,8 +26,12 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
     const [isPicVisibleSide, setIsPicVisibleSide] = useState(false);
 
     const [focusedPic, setFocusedPic] = useState(" ");
-
     const [isMounted, setIsMounted] = useState(false);
+
+    // console.log("Session Gallery Data:");
+    // const res = async() => await fetch(apiEndpoint)
+    // const data = async() => await res.json()
+    // console.log(data);
 
     useEffect(() => {
         setIsMounted(true);
@@ -95,7 +99,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                         ))
                     }
                 </div>
-                
+
                 <div className="btm-helpful-txt-container">
                     <div className="btm-vertical-bar"></div>
                     <h2 className="btm-helpful-txt helpful-txt--styles">
@@ -105,4 +109,14 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                 <BtmGallery galleryItems={galleryItems} />
             </>
         )
+}
+
+export async function getInitialProps(context) {
+    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
+    const res = await fetch(apiEndpoint)
+    const data = await res.json()
+
+    return {
+        data: data // will be passed to the page component as props
+    }
 }

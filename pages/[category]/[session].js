@@ -12,13 +12,17 @@ const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 export default function Session() {
     const router = useRouter();
     const routerSession = router.query.category;
+    const [session, setSession] = useState();
 
     const [canScroll, setCanScroll] = useState(false);
 
     const scrollY = useScrollPosition(60);
 
+    console.log(routerSession);
+
     useEffect(() => {
-    
+        setSession(router.query.category);
+
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {
@@ -27,7 +31,12 @@ export default function Session() {
     }, [canScroll])
 
 
-    return (
+    return !routerSession ?
+        <div className="loading-container">
+            <div className="loading-txt-container">
+                <h1 className="loading-txt">JUAN MUNOZ</h1>
+            </div>
+        </div> :(
         <div className={`page-wrapper`} >
             <>
                 <Header />
