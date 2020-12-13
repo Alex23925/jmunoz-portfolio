@@ -13,7 +13,8 @@ const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
 export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}) {
-
+    const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
+    
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
     const Client = Prismic.client(apiEndpoint, { accessToken });
@@ -28,10 +29,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
     const [focusedPic, setFocusedPic] = useState(" ");
     const [isMounted, setIsMounted] = useState(false);
 
-    // console.log("Session Gallery Data:");
-    // const res = async() => await fetch(apiEndpoint)
-    // const data = async() => await res.json()
-    // console.log(data);
+    
 
     useEffect(() => {
         setIsMounted(true);

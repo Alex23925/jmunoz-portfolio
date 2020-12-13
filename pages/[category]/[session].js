@@ -13,8 +13,9 @@ const Loader = dynamic(() => import("../../components/Loader"));
 export default function Session() {
     const router = useRouter();
     const routerSession = router.query.category;
-    const [session, setSession] = useState();
-
+    
+    console.log(routerSession);
+    
     const [canScroll, setCanScroll] = useState(false);
 
     const scrollY = useScrollPosition(60);
@@ -22,8 +23,7 @@ export default function Session() {
     console.log(routerSession);
 
     useEffect(() => {
-        setSession(router.query.category);
-
+    
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {
