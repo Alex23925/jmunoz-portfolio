@@ -8,6 +8,7 @@ import '../../styles/home.scss';
 
 const Header = dynamic(() => import("../../components/AboutHeader"));
 const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
+const Loader = dynamic(() => import("../../components/Loader"));
 
 export default function Session() {
     const router = useRouter();
@@ -32,11 +33,7 @@ export default function Session() {
 
 
     return !routerSession ?
-        <div className="loading-container">
-            <div className="loading-txt-container">
-                <h1 className="loading-txt">JUAN MUNOZ</h1>
-            </div>
-        </div> :(
+        <Loader setCanScroll={setCanScroll} /> :(
         <div className={`page-wrapper`} >
             <>
                 <Header />
