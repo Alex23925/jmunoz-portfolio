@@ -134,15 +134,14 @@
 }
 
 .btm-gallery-pic {
-    width: 350px;
-    height: auto;
+    height: 300px;
     padding-right: 2vw;
     display: inline-block;
     @include media(">=tablet"){
-
+        height: 350px;
     }
     @include media(">=desktop"){
-        
+        height: 350px;
     }
 }
 
