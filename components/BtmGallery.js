@@ -44,28 +44,25 @@ export default function BtmGallery({ galleryItems }) {
             </div>
         </div> : (
             <>
-                <div className="btm-gallery-wrapper">
+                <motion.div className="btm-gallery-wrapper">
                     <h1 className="gallery-title gallery-title--styles">
                         Gallery
                 </h1>
-                    <div className="row1 btm-gallery-row">
+                    <motion.div className="row1 btm-gallery-row">
 
                         {
 
                             pics.map((item, index) => (
-                                <Link
-                                    as={`/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`}
-                                    href={`https://jmunoz-portfolio.vercel.app/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`}
-                                >
-                                    <a className="btm-gallery-child">
+                                
+                                    <a href={`https://jmunoz-portfolio.vercel.app/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`} className="btm-gallery-child">
                                         <img id={`pic-${index}`} className="btm-gallery-pic" src={item.data.gallery_image.url} alt={`image ${index}`} />
                                     </a>
-                                </Link>
+                                
                             ))
                         }
-                    </div>
+                    </motion.div>
 
-                </div>
+                </motion.div>
             </>
         )
 }

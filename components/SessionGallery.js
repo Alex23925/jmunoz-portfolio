@@ -115,7 +115,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
                         Explore More
                     </h2>
                 </motion.div>
-                <BtmGallery galleryItems={galleryItems} />
+                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll}  />
             </>
         )
 }
