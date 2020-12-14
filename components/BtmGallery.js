@@ -55,7 +55,7 @@ export default function BtmGallery({ galleryItems }) {
                             pics.map((item, index) => (
                                 <Link
                                     as={`/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`}
-                                    href="https://jmunoz-portfolio.vercel.app/[category]/[session]"
+                                    href={`https://jmunoz-portfolio.vercel.app/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`}
                                 >
                                     <a className="btm-gallery-child">
                                         <img id={`pic-${index}`} className="btm-gallery-pic" src={item.data.gallery_image.url} alt={`image ${index}`} />
