@@ -138,10 +138,10 @@
     padding-right: 2vw;
     display: inline-block;
     @include media(">=tablet"){
-        height: 350px;
+        height: 450px;
     }
     @include media(">=desktop"){
-        height: 350px;
+        height: 550px;
     }
 }
 

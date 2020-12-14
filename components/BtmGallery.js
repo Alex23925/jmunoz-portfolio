@@ -1,4 +1,5 @@
 import "../styles/gallery-styles/btm-gallery.scss";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Prismic from "prismic-javascript";
@@ -42,24 +43,29 @@ export default function BtmGallery({ galleryItems }) {
                 <h1 className="loading-txt">JUAN MUNOZ</h1>
             </div>
         </div> : (
-        <>
-            <motion.div className="btm-gallery-wrapper">
-                <h1 className="gallery-title gallery-title--styles">
-                    Gallery
+            <>
+                <div className="btm-gallery-wrapper">
+                    <h1 className="gallery-title gallery-title--styles">
+                        Gallery
                 </h1>
-                <motion.div className="row1 btm-gallery-row">
+                    <div className="row1 btm-gallery-row">
 
-                    {
+                        {
 
-                        pics.map((item, index) => (
-                            <div className="btm-gallery-child">
-                                <img id={`pic-${index}`} className="btm-gallery-pic" src={item.data.gallery_image.url} alt={`image ${index}`} />
-                            </div>
-                        ))
-                    }
-                </motion.div>
+                            pics.map((item, index) => (
+                                <Link
+                                    as={`/${item.data.category[0].text}/${item.data.gallery_item_pics_name}`}
+                                    href="https://jmunoz-portfolio.vercel.app/[category]/[session]"
+                                >
+                                    <a className="btm-gallery-child">
+                                        <img id={`pic-${index}`} className="btm-gallery-pic" src={item.data.gallery_image.url} alt={`image ${index}`} />
+                                    </a>
+                                </Link>
+                            ))
+                        }
+                    </div>
 
-            </motion.div>
-        </>
-    )
+                </div>
+            </>
+        )
 }
