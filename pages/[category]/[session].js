@@ -21,10 +21,8 @@ export default function Session() {
 
     let cookieRouter = Cookie.get("sessionKey");
 
-    console.log(cookieRouter);
-
     useEffect(() => {
-        Cookie.set("sessionKey", routerSession);
+        Cookie.set("sessionKey", routerSession, { path: '' });
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {

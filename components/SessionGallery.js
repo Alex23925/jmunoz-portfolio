@@ -53,7 +53,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
             }
         }
         fetchData()
-    }, [])
+    }, [sessionName])
 
     return !galleryItems ?
         <div className="loading-container">
