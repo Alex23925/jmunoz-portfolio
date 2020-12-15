@@ -22,7 +22,7 @@ export default function Session() {
     let cookieRouter = Cookie.get("sessionKey");
 
     useEffect(() => {
-        Cookie.set("sessionKey", routerSession, { path: '' });
+        Cookie.set("sessionKey", routerSession, { expires: 7, path: '' });
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {
