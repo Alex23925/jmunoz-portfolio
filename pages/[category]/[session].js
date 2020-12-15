@@ -5,6 +5,7 @@ import useScrollPosition from '@react-hook/window-scroll';
 import dynamic from "next/dynamic";
 import Prismic from "prismic-javascript";
 import '../../styles/home.scss';
+import Cookie from "js-cookie";
 
 const Header = dynamic(() => import("../../components/AboutHeader"));
 const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
@@ -13,32 +14,33 @@ const Loader = dynamic(() => import("../../components/Loader"));
 export default function Session() {
     const router = useRouter();
     const routerSession = router.query.category;
-    
-    console.log(routerSession);
-    
+
     const [canScroll, setCanScroll] = useState(false);
 
     const scrollY = useScrollPosition(60);
 
-    console.log(routerSession);
+    let cookieRouter = Cookie.get("sessionKey");
+
+    console.log(cookieRouter);
 
     useEffect(() => {
-    
+        Cookie.set("sessionKey", routerSession);
         if (canScroll === false) {
             document.querySelector("body").classList.add("no-scroll");
         } else {
             document.querySelector("body").classList.remove("no-scroll");
         }
-    }, [canScroll])
+    }, [routerSession, canScroll])
 
+    // !routerSession ?
+    //     <Loader setCanScroll={setCanScroll} /> :
 
-    return !routerSession ?
-        <Loader setCanScroll={setCanScroll} /> :(
-        <div className={`page-wrapper`} >
+    return (
+        <motion.div className={`page-wrapper`} >
             <>
                 <Header />
-                <SessionGallery scrollY={scrollY} sessionName={routerSession} setCanScroll={setCanScroll} canScroll={canScroll} />
-            </> 
-        </div>
+                <SessionGallery scrollY={scrollY} sessionName={routerSession ? routerSession : cookieRouter} setCanScroll={setCanScroll} canScroll={canScroll} />
+            </>
+        </motion.div>
     )
 }
