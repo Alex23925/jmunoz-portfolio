@@ -48,7 +48,7 @@
         margin-bottom: 156px;
     }
     @include media(">=LGdesktop") { 
-        max-width: 650px;
+        width: 650px;
         height: auto;
         transform: translate3d(var(--leftPicX),0,0);
         margin-bottom: 156px; 
