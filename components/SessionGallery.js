@@ -81,18 +81,18 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
                                     index={index} />
 
                             ))
-                        }
-                        <motion.div initial="initial" animate="animate" variants={btmVariant}  className="helpful-txt-container">
-                            <div className="verticle-bar"></div>
-                            <h2 className="helpful-txt helpful-txt--styles">
-                                <span>C</span>
-                                <span>l</span>
-                                <span>i</span>
-                                <span>c</span>
-                                <span>k</span>
-                            </h2>
-                        </motion.div>
+                        }   
                     </section>
+                    <motion.div initial="initial" animate="animate" variants={btmVariant} className="helpful-txt-container">
+                        <div className="verticle-bar"></div>
+                        <h2 className="helpful-txt helpful-txt--styles">
+                            <span>C</span>
+                            <span>l</span>
+                            <span>i</span>
+                            <span>c</span>
+                            <span>k</span>
+                        </h2>
+                    </motion.div>
                 </div>
                 <div className="gallery-wrapper">
                     {
