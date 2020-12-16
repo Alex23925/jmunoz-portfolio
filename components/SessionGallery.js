@@ -40,11 +40,11 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
     const [focusedPic, setFocusedPic] = useState(" ");
     const [isMounted, setIsMounted] = useState(false);
 
-    const scrollerRef = useRef(null);
+    // const scrollerRef = useRef(null);
     
-    console.log(scrollerRef.current.scrollTop);
+    // console.log(scrollerRef.current.scrollTop);
 
-    //scrollerRef.current.scrollTop = scrollY/15;
+    //scrollerRef.current.scrollTop = scrollY/2;
     
     useEffect(() => {
         setIsMounted(true);
@@ -69,7 +69,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
             <>
                 <Loader setCanScroll={setCanScroll} />
                 <div className="side-scroll-wrapper">
-                    <div ref={scrollerRef} className="side-scroll-container">
+                    <div className="side-scroll-container">
                         <section className="gallery-side-scroll">
                             {
 
