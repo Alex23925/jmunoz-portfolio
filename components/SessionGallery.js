@@ -12,19 +12,19 @@ const AwareGalleryItem = dynamic(() => import("./AwareGalleryItem"));
 const BtmGallery = dynamic(() => import("../components/BtmGallery"));
 const Loader = dynamic(() => import("./Loader"));
 
-export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}) {
+export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY }) {
     const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
-    
-    const btmVariant = {
-    initial: {
-        opacity: 0
-    },
-    animate: {
-        opacity: 1,
-        transition: { duration: 1, ...transition },
-    }
 
-}
+    const btmVariant = {
+        initial: {
+            opacity: 0
+        },
+        animate: {
+            opacity: 1,
+            transition: { duration: 1, ...transition },
+        }
+
+    }
 
     const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
     const accessToken = '';
@@ -40,8 +40,12 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
     const [focusedPic, setFocusedPic] = useState(" ");
     const [isMounted, setIsMounted] = useState(false);
 
+    const scrollerRef = useRef(null);
     
+    console.log(scrollerRef.current.scrollTop);
 
+    //scrollerRef.current.scrollTop = scrollY/15;
+    
     useEffect(() => {
         setIsMounted(true);
         const fetchData = async () => {
@@ -64,25 +68,28 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
         (
             <>
                 <Loader setCanScroll={setCanScroll} />
-                <div className="side-scroll-container">
-                    <section className="gallery-side-scroll">
-                        {
+                <div className="side-scroll-wrapper">
+                    <div ref={scrollerRef} className="side-scroll-container">
+                        <section className="gallery-side-scroll">
+                            {
 
-                            galleryItems.map((item, index) => (
+                                galleryItems.map((item, index) => (
 
-                                <SideVizImageAware
-                                    scrollY={scrollY}
-                                    canScroll={canScroll}
-                                    visiblePic={visiblePic}
-                                    setVisiblePicSide={setVisiblePicSide}
-                                    setIsPicVisibleSide={setIsPicVisibleSide}
-                                    classN={"gallery-side-pic"}
-                                    img={item.data.shoot_image.url}
-                                    index={index} />
+                                    <SideVizImageAware
+                                        scrollY={scrollY}
+                                        canScroll={canScroll}
+                                        visiblePic={visiblePic}
+                                        setVisiblePicSide={setVisiblePicSide}
+                                        setIsPicVisibleSide={setIsPicVisibleSide}
+                                        classN={"gallery-side-pic"}
+                                        img={item.data.shoot_image.url}
+                                        index={index} />
 
-                            ))
-                        }   
-                    </section>
+                                ))
+                            }
+                        </section>
+
+                    </div>
                     <motion.div initial="initial" animate="animate" variants={btmVariant} className="helpful-txt-container">
                         <div className="verticle-bar"></div>
                         <h2 className="helpful-txt helpful-txt--styles">
@@ -115,7 +122,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY}
                         Explore More
                     </h2>
                 </motion.div>
-                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll}  />
+                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll} />
             </>
         )
 }
