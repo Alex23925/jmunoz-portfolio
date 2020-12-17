@@ -119,13 +119,13 @@
 
 .btm-gallery-row::-webkit-scrollbar {
     width: 4px;
-    height: 4px;
+    height: 8px;
     border-radius: 25px;
     background-color: lighten($color: $bg-dark, $amount: 10); /* or add it to the track */
 }
 
 .btm-gallery-row::-webkit-scrollbar-thumb {
-    background-color: $secondary-clr;
+    background-color: lighten($color: $bg-dark, $amount: 45); /* or add it to the track */
 }
 
 

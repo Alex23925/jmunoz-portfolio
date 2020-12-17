@@ -41,11 +41,11 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
     const [isMounted, setIsMounted] = useState(false);
 
     // const scrollerRef = useRef(null);
-    
+
     // console.log(scrollerRef.current.scrollTop);
 
     //scrollerRef.current.scrollTop = scrollY/2;
-    
+
     useEffect(() => {
         setIsMounted(true);
         const fetchData = async () => {
@@ -69,26 +69,29 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
             <>
                 <Loader setCanScroll={setCanScroll} />
                 <div className="side-scroll-wrapper">
-                    <div className="side-scroll-container">
-                        <section className="gallery-side-scroll">
-                            {
+                    {/* side-scroller is  so you can still click pics in side scroll container, no styling applied */}
+                    <div className="side-scroller">
+                        <div className="side-scroll-container">
+                            <section className="gallery-side-scroll">
+                                {
 
-                                galleryItems.map((item, index) => (
+                                    galleryItems.map((item, index) => (
 
-                                    <SideVizImageAware
-                                        scrollY={scrollY}
-                                        canScroll={canScroll}
-                                        visiblePic={visiblePic}
-                                        setVisiblePicSide={setVisiblePicSide}
-                                        setIsPicVisibleSide={setIsPicVisibleSide}
-                                        classN={"gallery-side-pic"}
-                                        img={item.data.shoot_image.url}
-                                        index={index} />
+                                        <SideVizImageAware
+                                            scrollY={scrollY}
+                                            canScroll={canScroll}
+                                            visiblePic={visiblePic}
+                                            setVisiblePicSide={setVisiblePicSide}
+                                            setIsPicVisibleSide={setIsPicVisibleSide}
+                                            classN={"gallery-side-pic"}
+                                            img={item.data.shoot_image.url}
+                                            index={index} />
 
-                                ))
-                            }
-                        </section>
+                                    ))
+                                }
+                            </section>
 
+                        </div>
                     </div>
                     <motion.div initial="initial" animate="animate" variants={btmVariant} className="helpful-txt-container">
                         <div className="verticle-bar"></div>
