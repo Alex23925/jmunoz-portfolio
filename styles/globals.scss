@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import "./colors.scss";
 
 html,
 body,
@@ -134,4 +135,18 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: lighten($color: $bg-dark, $amount: 10); /* or add it to the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lighten($color: $bg-dark, $amount: 20);
+}
+
+::-webkit-scrollbar:hover {
+    width: 2px;
+    height: 2px;
 }
