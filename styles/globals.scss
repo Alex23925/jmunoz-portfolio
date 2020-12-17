@@ -91,6 +91,7 @@ video {
     font: inherit;
     vertical-align: baseline;
     scroll-behavior: smooth;
+    overscroll-behavior-y: none;
 }
 
 /* HTML5 display-role reset for older browsers */

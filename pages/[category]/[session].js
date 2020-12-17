@@ -8,6 +8,7 @@ import '../../styles/home.scss';
 import Cookie from "js-cookie";
 
 const Header = dynamic(() => import("../../components/AboutHeader"));
+const CustomScrollLayout = dynamic(() => import("../../components/CustomScrollLayout"));
 const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 const Loader = dynamic(() => import("../../components/Loader"));
 
@@ -34,11 +35,15 @@ export default function Session() {
     //     <Loader setCanScroll={setCanScroll} /> :
 
     return (
-        <motion.div className={`page-wrapper`} >
-            <>
-                <Header />
-                <SessionGallery scrollY={scrollY} sessionName={routerSession ? routerSession : cookieRouter} setCanScroll={setCanScroll} canScroll={canScroll} />
-            </>
-        </motion.div>
+        <>
+
+            <motion.div className={`page-wrapper`} >
+                <>
+                    <Header />
+                    <SessionGallery scrollY={scrollY} sessionName={routerSession ? routerSession : cookieRouter} setCanScroll={setCanScroll} canScroll={canScroll} />
+                </>
+            </motion.div>
+
+        </>
     )
 }

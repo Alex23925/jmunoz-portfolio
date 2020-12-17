@@ -145,16 +145,6 @@
     }
 }
 
-@keyframes slideshowTransform {
-    0% {
-        transform: translateX(35%);  
-    }
-    100% { 
-    transform: translateX(-105%);  
-  }
-}
-
-
 .dnone {
     display: none;
 }

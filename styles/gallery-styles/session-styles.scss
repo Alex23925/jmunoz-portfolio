@@ -55,6 +55,10 @@
     background-color: lighten($color: $bg-dark, $amount: 20);
 }
 
+.side-scroll-container::-webkit-scrollbar:hover {
+    width: 2px;
+    height: 2px;
+}
 
 
 .side-bar-a {
