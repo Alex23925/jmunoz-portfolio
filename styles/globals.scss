@@ -138,15 +138,10 @@ table {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    background-color: lighten($color: $bg-dark, $amount: 10); /* or add it to the track */
+    width: 12px;
+    background-color: lighten($color: $bg-dark, $amount: 4); /* or add it to the track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: lighten($color: $bg-dark, $amount: 20);
-}
-
-::-webkit-scrollbar:hover {
-    width: 2px;
-    height: 2px;
+    background-color: lighten($color: $bg-dark, $amount: 8);
 }
