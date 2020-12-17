@@ -68,8 +68,34 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
         (
             <>
                 <Loader setCanScroll={setCanScroll} />
-                <div className="side-scroll-wrapper">
-                    {/* side-scroller is  so you can still click pics in side scroll container, no styling applied */}
+                <div className="gallery-wrapper">
+                    {
+
+                        galleryItems.map((item, index) => (
+                            <AwareGalleryItem
+                                setVisiblePic={setVisiblePic}
+                                setIsPicVisible={setIsPicVisible}
+                                img={item.data.shoot_image.url}
+                                index={index}
+                            />
+
+                        ))
+                    }
+                </div>
+
+                <motion.div initial="initial" animate="animate" variants={btmVariant} className="btm-helpful-txt-container">
+                    <div className="btm-vertical-bar"></div>
+                    <h2 className="btm-helpful-txt helpful-txt--styles">
+                        Explore More
+                    </h2>
+                </motion.div>
+                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll} />
+            </>
+        )
+}
+
+// side scroll bar if i ever want to implement again
+{/* <div className="side-scroll-wrapper">
                     <div className="side-scroller">
                         <div className="side-scroll-container">
                             <section className="gallery-side-scroll">
@@ -103,29 +129,4 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                             <span>k</span>
                         </h2>
                     </motion.div>
-                </div>
-                <div className="gallery-wrapper">
-                    {
-
-                        galleryItems.map((item, index) => (
-                            <AwareGalleryItem
-                                setVisiblePic={setVisiblePic}
-                                setIsPicVisible={setIsPicVisible}
-                                img={item.data.shoot_image.url}
-                                index={index}
-                            />
-
-                        ))
-                    }
-                </div>
-
-                <motion.div initial="initial" animate="animate" variants={btmVariant} className="btm-helpful-txt-container">
-                    <div className="btm-vertical-bar"></div>
-                    <h2 className="btm-helpful-txt helpful-txt--styles">
-                        Explore More
-                    </h2>
-                </motion.div>
-                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll} />
-            </>
-        )
-}
+                </div> */}

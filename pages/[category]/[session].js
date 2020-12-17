@@ -36,14 +36,14 @@ export default function Session() {
 
     return (
         <>
-
-            <motion.div className={`page-wrapper`} >
-                <>
-                    <Header />
-                    <SessionGallery scrollY={scrollY} sessionName={routerSession ? routerSession : cookieRouter} setCanScroll={setCanScroll} canScroll={canScroll} />
-                </>
-            </motion.div>
-
+            <CustomScrollLayout canScroll={canScroll}>
+                <motion.div className={`page-wrapper`} >
+                    <>
+                        <Header />
+                        <SessionGallery scrollY={scrollY} sessionName={routerSession ? routerSession : cookieRouter} setCanScroll={setCanScroll} canScroll={canScroll} />
+                    </>
+                </motion.div>
+            </CustomScrollLayout>
         </>
     )
 }
