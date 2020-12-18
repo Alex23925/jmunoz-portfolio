@@ -7,7 +7,7 @@ import Prismic from "prismic-javascript";
 import '../../styles/home.scss';
 import Cookie from "js-cookie";
 
-const Header = dynamic(() => import("../../components/AboutHeader"));
+const Header = dynamic(() => import("../../components/Header"));
 const CustomScrollLayout = dynamic(() => import("../../components/CustomScrollLayout"));
 const SessionGallery = dynamic(() => import("../../components/SessionGallery"));
 const Loader = dynamic(() => import("../../components/Loader"));
