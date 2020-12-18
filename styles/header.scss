@@ -88,19 +88,28 @@
 
 // About Header styles
 
+.arrow--styles {
+    font-size: 8px;
+    font-weight: 800;
+    padding-right: .6vw;
+    @include media(">=tablet") {
+        font-size: 24px;
+    }
+    @include media(">=desktop") {
+        font-size: 32px;
+    }
+}
+
 .go-back--styles {
     z-index: 1;
     font-family: $font-main;
     color: $primary-clr;
     font-size: 14px;
-    font-weight: 500;
-    @include media("<tablet") {
-        font-size: 24px;
+    font-weight: 800;
+    @include media(">phone") {
+        font-size: 14px;
     }
-    @include media(">=tablet") {
-        font-size: 24px;
-    }
-    @include media(">=desktop") {
+    @include media(">tablet") {
         font-size: 32px;
     }
 }
