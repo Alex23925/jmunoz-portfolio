@@ -69,7 +69,6 @@ export default function Header(props) {
 
     return (
         <motion.div initial="initial" animate="animate" exit="exit" className="header header-styles">
-            <a href="https://jmunoz-portfolio.vercel.app/">
                 <motion.div initial="initial" animate="animate" variants={nameVariant} className="name-title">
                     <motion.span variants={fNameVariant} initial="initial" animate="animate" className="first-name first-name--styles">
                         <motion.span variants={letter}>J</motion.span>
@@ -85,7 +84,6 @@ export default function Header(props) {
                         <motion.span variants={letter}>Z</motion.span>
                     </motion.span>
                 </motion.div>
-            </a>
             <nav className="main-nav main-nav--styles">
                 <Link href="/about">
                     <motion.a initial="initial" animate="animate" variants={btnVariant} className="link link--styles">about</motion.a>
