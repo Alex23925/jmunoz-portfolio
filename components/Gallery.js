@@ -54,6 +54,7 @@ export default function Gallery({ setCanScroll }) {
                     {
                         galleryItems.map((item, index) => (
                             <GalleryItem
+                                speed={-50 + Math.random() * (-75 - (-50))}
                                 index={index}
                                 img={item.data.gallery_image.url}
                                 title={item.data.gallery_item_title[0].text}

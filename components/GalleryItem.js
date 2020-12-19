@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
-import { useAnimation, motion } from "framer-motion";
+import { useViewportScroll, useTransform, useAnimation, motion } from "framer-motion";
 
-export default function GalleryItem({ index, img, title, category, photoshootLink }) {
+export default function GalleryItem({ speed, index, img, title, category, photoshootLink }) {
 
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let x;
@@ -15,7 +15,13 @@ export default function GalleryItem({ index, img, title, category, photoshootLin
     )
 
     const easing = [.25, .1, .25, 1];
+    
+    const { scrollY } = useViewportScroll();
+    const parallaxY = useTransform(scrollY, [0, 300], [0, speed]);
+    
+    // style={{ y: parallaxY, x: -50 }}
 
+    
     const fadeInUp = {
         initial: {
             y: 100,
