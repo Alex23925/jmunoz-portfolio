@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState, useRef } from "react";
 import { useAnimation, motion } from "framer-motion";
-import Prismic from "prismic-javascript";
+import useFetchGalleryItem from "../hooks/useFetchGalleryItem";
+
 import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 
@@ -9,6 +10,8 @@ const GalleryItem = dynamic(() => import("./GalleryItem"));
 const Loader = dynamic(() => import("./Loader"));
 
 export default function Gallery({ setCanScroll }) {
+
+    // animation variants 
     const transition = { delay: .2, duration: 1.6, ease: [.5, .01, -.05, .5] };
 
     const stagger = {
@@ -19,11 +22,7 @@ export default function Gallery({ setCanScroll }) {
         }
     }
 
-    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
-    const accessToken = '';
-
-    const Client = Prismic.client(apiEndpoint, { accessToken });
-    const [galleryItems, setGalleryItemsData] = useState(null);
+    const galleryItems = useFetchGalleryItem('gallery_item');
 
     // animate variables
     const controlsHideTitle = useAnimation();
@@ -34,17 +33,6 @@ export default function Gallery({ setCanScroll }) {
     const imgRef = useRef();
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await Client.query(
-                Prismic.Predicates.at('document.type', 'gallery_item')
-            )
-            if (response) {
-                setGalleryItemsData(response.results)
-            }
-        }
-        fetchData()
-
-
         const interval = setInterval(() => {
             setHidden("overflow-hid lock");
         }, 1600);
