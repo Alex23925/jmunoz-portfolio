@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Prismic from "prismic-javascript";
 
-export default function BtmGallery({ galleryItems }) {
+export default function BtmGallery() {
     const transition = { delay: 1.2, duration: .4, ease: [.6, .01, -.05, .9] };
 
     const galleryVariant = {

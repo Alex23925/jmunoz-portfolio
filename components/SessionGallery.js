@@ -2,7 +2,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import Prismic from "prismic-javascript";
+import useFetchGalleryItem from "../hooks/useFetchGalleryItem";
+
 import "../styles/gallery-styles/gallery.scss";
 import "../styles/gallery-styles/loading-gallery.scss";
 import "../styles/gallery-styles/session-styles.scss";
@@ -26,10 +27,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
 
     }
 
-    const apiEndpoint = 'https://jmunoz-portfolio.cdn.prismic.io/api/v2';
-    const accessToken = '';
-    const Client = Prismic.client(apiEndpoint, { accessToken });
-    const [galleryItems, setGalleryItemsData] = useState(null);
+    const sessionItems = useFetchGalleryItem(sessionName);
 
     const [visiblePic, setVisiblePic] = useState(0);
     const [isPicVisible, setIsPicVisible] = useState(false);
@@ -48,18 +46,9 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
 
     useEffect(() => {
         setIsMounted(true);
-        const fetchData = async () => {
-            const response = await Client.query(
-                Prismic.Predicates.at('document.type', sessionName)
-            )
-            if (response) {
-                setGalleryItemsData(response.results)
-            }
-        }
-        fetchData()
     }, [sessionName])
 
-    return !galleryItems ?
+    return !sessionItems ?
         <div className="loading-container">
             <div className="loading-txt-container">
                 <h1 className="loading-txt">JUAN MUNOZ</h1>
@@ -71,7 +60,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                 <div className="gallery-wrapper">
                     {
 
-                        galleryItems.map((item, index) => (
+                        sessionItems.map((item, index) => (
                             <AwareGalleryItem
                                 setVisiblePic={setVisiblePic}
                                 setIsPicVisible={setIsPicVisible}
@@ -89,7 +78,7 @@ export default function Gallery({ sessionName, setCanScroll, canScroll, scrollY 
                         Explore More
                     </h2>
                 </motion.div>
-                <BtmGallery galleryItems={galleryItems} setCanScroll={setCanScroll} />
+                <BtmGallery setCanScroll={setCanScroll} />
             </>
         )
 }
